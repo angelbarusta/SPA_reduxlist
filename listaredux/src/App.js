@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import ListItem from './Components/ListItem';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
           List-Redux
         </p>
       </header>
+      <ListItem/>
     </div>
   );
 }
