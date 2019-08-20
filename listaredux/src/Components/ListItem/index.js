@@ -3,25 +3,27 @@ import {connect} from 'react-redux';
 import { Button, Popup, Item, Image, Segment } from 'semantic-ui-react'
 import '../../App.css';
 import {ItemTask} from './item.json';
-import { selectItem, identifi, nombreTarea } from '../../Redux/Actions/Items';
+import { selectItem, identifi, nombreTarea, descTarea } from '../../Redux/Actions/Items';
 
 //
 class ListaItems extends Component{
    
-    handleSelectItem=(idkey,nom)=>{
+    handleSelectItem=(idkey,nom,desc)=>{
         var v=true;
 
-        console.log('BB',nom);
+        //console.log('BB',nom);
         this.props.identifi(idkey);
         this.props.selectItem(v);
         this.props.nombreTarea(nom);
+        this.props.descTarea(desc);
     }
     render(){
         const ItemGrup=ItemTask.map((s,key)=>{
             var idkey=key+1;
             var nom=s.nombre;
+            var desc=s.desc;
             return(                
-                 <Item onClick={()=>this.handleSelectItem(idkey,nom)}>
+                 <Item onClick={()=>this.handleSelectItem(idkey,nom,desc)}>
                   <Item.Content style={{background: 'chocolate',padding:10,borderRadius:'2em'}}> 
                   <h4 style={{margin:'auto'}}>Elemento # {idkey}</h4>
                    <p> {s.nombre}</p>                    
@@ -60,6 +62,9 @@ const mapDispatchToProps=(dispatch)=>{
         },
         nombreTarea(n){
             dispatch(nombreTarea(n))
+        },
+        descTarea(desc){
+            dispatch(descTarea(desc))
         },
         
     }

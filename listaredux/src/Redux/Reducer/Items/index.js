@@ -5,6 +5,7 @@ const initialState = {
     haytask:false, 
     idElemento:1,
     nombreTask:'Titulo de la tarea...',
+    descripTask:'Descripcion de la tarea...',
 };
 
 const reducer=(state = initialState, action )=>{
@@ -29,7 +30,12 @@ const reducer=(state = initialState, action )=>{
             return{
                 ...state,
                 nombreTask:action.nom,
-            }             
+            }
+        case types.DESC:
+            return{
+                ...state,
+                descripTask:action.desc,
+            }                 
         default:
            return state;
     }

@@ -10,7 +10,7 @@
         {
             "id":1,
             "nombre":"Sensor de Temperatura",
-            "desc":"Este sensor mide la humedad del suelo(tierra)",
+            "desc":"Este sensor mide la temperatura ambiente",
             "tipo":"Sencillo",
             "fecha":"$30"
         }

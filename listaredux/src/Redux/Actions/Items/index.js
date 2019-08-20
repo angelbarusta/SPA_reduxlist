@@ -25,3 +25,9 @@ export const nombreTarea=(nom)=>{
         nom,
     }
 }
+export const descTarea=(desc)=>{
+    return{
+        type:types.DESC,
+        desc,
+    }
+}
