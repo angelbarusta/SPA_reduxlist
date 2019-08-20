@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import { Button, Header, Icon, Image, Menu, Segment, Sidebar, Card, Feed } from 'semantic-ui-react'
-import writeForm from './writeForm';
+import Write from './writeForm';
 import { visibilidad } from '../../Redux/Actions/Items';
 
 class WriteTask extends Component{
@@ -32,7 +32,7 @@ class WriteTask extends Component{
                 </Card>
 
                <Card style={{margin:0,width:'75%',height:'-webkit-fill-available'}} >
-                 <writeForm/>
+                 <Write/>
                </Card>
 
             </div>
