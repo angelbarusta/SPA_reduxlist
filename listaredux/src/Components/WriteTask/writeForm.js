@@ -1,9 +1,15 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import { Grid, Segment, Image, Form, Checkbox, Button, TextArea, Icon } from 'semantic-ui-react';
+import { Grid, Segment, Image, Form, Checkbox, Button, TextArea, Icon, Popup } from 'semantic-ui-react';
 import { selectItem, nombreTarea, descTarea, fechTarea, autorTarea, addListElement } from '../../Redux/Actions/Items';
 
 class Write extends Component{
+  constructor(){
+    super();
+    this.state={
+      colorButton:false,
+    }
+  }
     handleSelectItem=()=>{
         var v=false;
         this.props.selectItem(v);
@@ -47,7 +53,11 @@ class Write extends Component{
         "fecha":FechTask
       }
       
-     addList.splice(inde, 1, editTask); 
+     if (NameTask=="Nuevo elemento"||DescTask=="Describe aqui tu tarea..."||AutorTask=="Quien realiza la tarea..."||FechTask=="") {
+      addList.splice(inde, 1, editTask); 
+     }else{
+      addList.splice(inde, 1, editTask); 
+     }
      
 
          
@@ -75,16 +85,17 @@ class Write extends Component{
                 <Form>
                    <div style={{display:'flex',justifyContent:'center'}}>
                       <Form.Field>
-                        <label>Nombre del autor</label>
+                      <Popup style={{background:'rgba(241, 81, 81, 0.87)'}} content='Es necesario ingresar quien Edita' trigger={ <label>Nombre del autor</label>} />
+                       
                         <input placeholder={AutorTask} value={AutorTask} onChange={(e)=>this.handleAutor(e)}/>
                       </Form.Field>
                       <Form.Field>
-                        <label>Fecha</label>
+                      <Popup content='Apunta que fecha se registra el task' trigger={ <label>Fecha</label>} />
                         <input type='date' placeholder={FechTask} value={FechTask} onChange={(e)=>this.handleFecha(e)}/>
                       </Form.Field>
                    </div>
                    <Form.Field>
-                        <label>Titulo de tarea</label>
+                   <Popup content='Apunta el nombre de la tarea' trigger={ <label>Titulo de tarea</label>} />
                         <input placeholder={NameTask} value={NameTask} onChange={(e)=>this.handleTitulo(e)}/>
                       </Form.Field>
                    <Form.Field>
