@@ -20,15 +20,15 @@ class ListaItems extends Component{
         this.props.autorTarea(autor);
     }
     handleAdd=()=>{
-        this.props.addIdElemento();
 
-        let addList=[];
+        let addList=this.props.elements;//[]
         addList.push(ItemTask);
-
-        this.props.addListElement(addList);  
+        this.props.addIdElemento();
+        this.props.addListElement(addList); 
+          
     }
     render(){
-        var ListElem=this.props.elements[0];
+        var ListElem=this.props.elements;
         var idEl=this.props.idElemento;
 
         if (idEl>0) {

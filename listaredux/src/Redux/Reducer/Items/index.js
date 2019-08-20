@@ -13,7 +13,7 @@ const initialState = {
     fechTask: moment(new Date()).format('DD/MM/YYYY'),
     autorTask:'Nombre del autor...',
 
-    elements:{},
+    elements:[],
 };
 
 const reducer=(state = initialState, action )=>{
