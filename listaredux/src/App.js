@@ -41,6 +41,7 @@ class App extends Component{
             vertical
             visible={visibility}
             width='thin'
+            
             style={{width: '25%'}}
            
           >
@@ -49,7 +50,7 @@ class App extends Component{
           </Sidebar>
 
           <Sidebar.Pusher>
-            <Segment basic style={{width:'100%'}}>
+            <Segment basic className='segmewri'>
               <WriteTask />
             </Segment>
           </Sidebar.Pusher>

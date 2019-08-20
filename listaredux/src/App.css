@@ -24,9 +24,38 @@
 }
 
 .barListItem{
-  width: 25%;
-  background: steelblue;
-  height: -webkit-fill-available;
+  display:flex;
+  justify-content:space-between;
+}
+.eventNoti{
+  width:24%;
+  margin:0px !important;
+  height:180px; 
+}
+.WriteBloc{
+  margin:0px !important;
+  width:75% !important ;
+  height:'-webkit-fill-available';
+}
+.segmewri{
+  width:100% !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .barListItem{
+    display:block;
+  }
+  .eventNoti{
+    width:24%;
+    margin:auto !important;
+    padding-bottom: 10px;
+    height:180px; 
+  }
+  .WriteBloc{
+    margin:auto !important;
+    width:100% !important;
+    height:-webkit-fill-available;
+  }
 }
 
 @keyframes App-logo-spin {

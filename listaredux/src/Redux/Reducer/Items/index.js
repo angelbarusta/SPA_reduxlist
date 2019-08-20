@@ -2,7 +2,7 @@ import * as types from '../../../Redux/Types';
 
 const initialState = {
     visibility:false,
-    haytask:false,
+    haytask:false, 
 };
 
 const reducer=(state = initialState, action )=>{
@@ -16,7 +16,7 @@ const reducer=(state = initialState, action )=>{
         case types.SELECCIONANDOTEM:
             return{
                 ...state,
-                haytask:action.v,
+                haytask:action.v, 
             }        
         default:
            return state;

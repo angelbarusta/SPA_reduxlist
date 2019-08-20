@@ -3,18 +3,18 @@ import {connect} from 'react-redux';
 import { Button, Header, Icon, Image, Menu, Segment, Sidebar, Card, Feed, Label } from 'semantic-ui-react'
 import Write from './writeForm';
 import { visibilidad, selectItem } from '../../Redux/Actions/Items';
+import '../../App.css';
 
 class WriteTask extends Component{
-    
-      
+     
     handleShowClick = () =>{
         var v=true;
         this.props.visibilidad(v);              
       }
     render(){
         return(
-            <div style={{display:'flex',justifyContent:'space-between'}} >
-               <Card onClick={this.handleShowClick} style={{width:'24%',margin:0,height:180}} >
+            <div className='barListItem'>
+               <Card onClick={this.handleShowClick} className='eventNoti' > 
                   <Card.Content>
                     <Card.Header>Recent Activity</Card.Header>
                   </Card.Content>
@@ -33,7 +33,7 @@ class WriteTask extends Component{
                   </Card.Content>
                 </Card>
 
-               <Card style={{margin:0,width:'75%',height:'-webkit-fill-available'}} >
+               <Card className='WriteBloc' > 
                  <Write/>
                </Card>
 
