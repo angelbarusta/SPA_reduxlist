@@ -1,5 +1,6 @@
 
 export const VISIBILI = "VISIBILI";
 export const SELECCIONANDOTEM = 'SELECCIONANDOTEM';
+export const IDENTIFI = 'IDENTIFI';
 
 

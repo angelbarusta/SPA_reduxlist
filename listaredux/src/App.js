@@ -31,7 +31,7 @@ class App extends Component{
         </header>
       
 
-        <Sidebar.Pushable as={Segment}  style={{height:'-webkit-fill-available',margin:'auto'}}>
+        <Sidebar.Pushable as={Segment}  style={{height:'-webkit-fill-available',margin:'auto'}}> 
           <Sidebar
             as={Menu}
             animation='overlay'
@@ -40,9 +40,7 @@ class App extends Component{
             onHide={this.handleSidebarHide}
             vertical
             visible={visibility}
-            width='thin'
-            
-            style={{width: '25%'}}
+            className='siddbarEle'
            
           >
            <ListItem/>

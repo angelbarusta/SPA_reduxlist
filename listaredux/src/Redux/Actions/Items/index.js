@@ -13,3 +13,9 @@ export const selectItem=(v)=>{
         v,
     };
 };
+export const identifi=(idkey)=>{
+    return{
+        type:types.IDENTIFI,
+        idkey,
+    };
+};

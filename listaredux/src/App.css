@@ -40,6 +40,9 @@
 .segmewri{
   width:100% !important;
 }
+.siddbarEle{
+  width:25% !important;
+}
 
 @media only screen and (max-width: 600px) {
   .barListItem{
@@ -55,6 +58,10 @@
     margin:auto !important;
     width:100% !important;
     height:-webkit-fill-available;
+  }
+  .siddbarEle{
+    width:70% !important;
+    height:'-webkit-fill-available' !important;
   }
 }
 
