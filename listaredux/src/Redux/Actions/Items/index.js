@@ -1,9 +1,9 @@
 import * as types from '../../Types';
 
-export const duser=(u)=>{
-    console.log("USER",u)
+
+export const visibilidad=(v)=>{
     return{
-        type:types.DUSER,
-        u,
+        type:types.VISIBILI,
+        v,
     };
 };

@@ -1,20 +1,16 @@
-import * as types from '../../Types';
+import * as types from '../../../Redux/Types';
 
 const initialState = {
-    nav:false,
-     si:true,
-     no:false,
-     activeItem:{}, 
-     dashPets:'item',
+    visibility:false,
 };
 
 const reducer=(state = initialState, action )=>{
     console.log("Reducer",state)
     switch (action.type){
-        case types.DASHPETS:
+        case types.VISIBILI:
             return{
                 ...state,
-                dashPets:action.p,
+                visibility:action.v,
             }        
         default:
            return state;

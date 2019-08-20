@@ -6,13 +6,6 @@
             "desc":"Este sensor mide la humedad del suelo(tierra)",
             "tipo":"Sencillo",
             "fecha":"$30"
-        },
-        {
-            "id":2,
-            "nombre":"Sensor de humedad de suelo",
-            "desc":"Este sensor mide la humedad del suelo(tierra)",
-            "tipo":"Sencillo",
-            "fecha":"$30"
         }
     ]
    }
