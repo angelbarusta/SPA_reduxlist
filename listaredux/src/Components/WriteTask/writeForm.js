@@ -35,7 +35,8 @@ class Write extends Component{
         var DescTask= this.props.descripTask;
         var FechTask=this.props.fechTask;
         var AutorTask= this.props.autorTask;
-        // console.log('TTTT',seleElemen);
+        var canItem=this.props.cantidadElem;
+        
         return(
             <Grid stackable columns={1}>
 
@@ -76,7 +77,12 @@ class Write extends Component{
             <Grid.Column>
               <Segment style={{height:'-webkit-fill-available'}}>
                   <Icon circular  name='user' style={{fontSize: '4.5em'}}/>
-                <h4>No has seleccionado un elemento</h4>
+                {
+                  canItem>0 ?
+                  <h4>No has seleccionado un elemento</h4>
+                  :
+                  <h4>No has creado ningun elemento, crea uno para iniciar</h4>
+                }
               </Segment>
             </Grid.Column>
             }
@@ -94,6 +100,7 @@ const mapStateToProps=(state)=>{
         descripTask:state.Items.descripTask,
         fechTask:state.Items.fechTask,
         autorTask:state.Items.autorTask,
+        cantidadElem:state.Items.cantidadElem,
     }
 }
 const mapDispatchToProps=(dispatch)=>{
