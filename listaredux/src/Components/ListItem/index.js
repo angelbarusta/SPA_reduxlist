@@ -4,25 +4,25 @@ import { Button, Popup, Item, Image } from 'semantic-ui-react'
 import '../../App.css';
 import {ItemTask} from './item.json';
 
-
+//
 class ListaItems extends Component{
     render(){
         const ItemGrup=ItemTask.map((s,i)=>{
-            return(
-                <Item.Group style={{padding:20 }}>
+            return(                
                  <Item>
-                  <Item.Content style={{background: 'chocolate',padding:10}}>
-                  <h4 style={{margin:'auto'}}>elemento # {i+1}</h4>
+                  <Item.Content style={{background: 'chocolate',padding:10,borderRadius:'2em'}}> 
+                  <h4 style={{margin:'auto'}}>Elemento # {i+1}</h4>
                    <p> {s.nombre}</p>                    
                   </Item.Content>
                 </Item>
-              </Item.Group>
             )
         });
 
         return(
             <div className='barListItem'>
-               {ItemGrup}
+                <Item.Group style={{padding:10 }}>
+                  {ItemGrup}
+                </Item.Group>              
             </div>
         )
     }
