@@ -1,4 +1,5 @@
 
 export const VISIBILI = "VISIBILI";
+export const SELECCIONANDOTEM = 'SELECCIONANDOTEM';
 
 

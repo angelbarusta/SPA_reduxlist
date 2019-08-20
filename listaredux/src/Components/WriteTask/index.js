@@ -1,25 +1,27 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import { Button, Header, Icon, Image, Menu, Segment, Sidebar, Card, Feed } from 'semantic-ui-react'
+import { Button, Header, Icon, Image, Menu, Segment, Sidebar, Card, Feed, Label } from 'semantic-ui-react'
 import Write from './writeForm';
-import { visibilidad } from '../../Redux/Actions/Items';
+import { visibilidad, selectItem } from '../../Redux/Actions/Items';
 
 class WriteTask extends Component{
+    
+      
     handleShowClick = () =>{
         var v=true;
-        this.props.visibilidad(v);
+        this.props.visibilidad(v);              
       }
     render(){
         return(
-            <div style={{display:'flex',justifyContent:'space-between'}}>
-               <Card onClick={this.handleShowClick} style={{width:'24%',margin:0,height:180}}>
+            <div style={{display:'flex',justifyContent:'space-between'}} >
+               <Card onClick={this.handleShowClick} style={{width:'24%',margin:0,height:180}} >
                   <Card.Content>
                     <Card.Header>Recent Activity</Card.Header>
                   </Card.Content>
                   <Card.Content>
                     <Feed>
                       <Feed.Event>
-                        <Feed.Label image='/images/avatar/small/jenny.jpg' />
+                        <Label circular color={'red'} style={{width:10,height:10}}>1</Label>
                         <Feed.Content>
                           <Feed.Date content='1 day ago' />
                           <Feed.Summary>
@@ -50,6 +52,9 @@ const mapDispatchToProps=(dispatch)=>{
         visibilidad(v){
             dispatch(visibilidad(v))
           },
+          selectItem(i){
+            dispatch(selectItem(i))
+        },
     }
 }
 

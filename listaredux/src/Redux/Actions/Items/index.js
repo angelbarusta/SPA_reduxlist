@@ -7,3 +7,9 @@ export const visibilidad=(v)=>{
         v,
     };
 };
+export const selectItem=(v)=>{
+    return{
+        type:types.SELECCIONANDOTEM,
+        v,
+    };
+};
