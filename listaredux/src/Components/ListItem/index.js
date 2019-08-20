@@ -29,7 +29,7 @@ class ListaItems extends Component{
     }
     render(){
         var ListElem=this.props.elements;
-        var idEl=this.props.idElemento;
+        var idEl=this.props.cantidadElem;
 
         if (idEl>0) {
             var ItemGrup=ListElem.map((s,key)=>{
@@ -79,6 +79,7 @@ const mapStateToProps=(state)=>{
     return{
         elements:state.Items.elements,
         idElemento:state.Items.idElemento,
+        cantidadElem:state.Items.cantidadElem,
     }
 }
 const mapDispatchToProps=(dispatch)=>{
