@@ -28,15 +28,21 @@ class ListaItems extends Component{
         var FechTask=this.props.fechTask;
         var AutorTask= this.props.autorTask;
         var canItem=this.props.cantidadElem;
-        
-        addList.push( {
-            "nombre":NameTask,
-            "desc":DescTask,
-            "autor":AutorTask,
-            "fecha":FechTask
-        });
-        this.props.addIdElemento();
-        this.props.addListElement(addList); 
+
+        if (canItem<=1) { 
+            addList.push( {
+                "nombre":NameTask,
+                "desc":DescTask,
+                "autor":AutorTask,
+                "fecha":FechTask
+            });
+            this.props.addIdElemento();
+            this.props.addListElement(addList); 
+        }else{
+            addList.push(ItemTask);
+            this.props.addIdElemento();
+            this.props.addListElement(addList); 
+        }
           
     }
     render(){
@@ -74,7 +80,7 @@ class ListaItems extends Component{
 
         return(
             <div >
-                <Item.Group style={{padding:10 }}>
+                <Item.Group style={{padding:10 }}> 
                   <div >
                     {ItemGrup}
                   </div>

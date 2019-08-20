@@ -23,7 +23,7 @@ class WriteTask extends Component{
                       <Feed.Event>
                         <Label circular color={'red'} style={{width:10,height:10}}>1</Label>
                         <Feed.Content>
-                          <Feed.Date content='1 day ago' />
+                          <Feed.Date content='1 day ago' /> 
                           <Feed.Summary>
                             You added <a>Jenny Hess</a> to your <a>coworker</a> group.
                           </Feed.Summary>
