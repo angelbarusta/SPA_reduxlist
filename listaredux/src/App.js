@@ -4,6 +4,7 @@ import './App.css';
 import ListItem from './Components/ListItem';
 import { Button, Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
 import { visibilidad } from './Redux/Actions/Items';
+import WriteTask from './Components/WriteTask';
 
 class App extends Component{
   
@@ -23,21 +24,14 @@ class App extends Component{
     const {visibility}=this.props;
     return (
       <div className="App">
-        <header className="App-header">        
-          <p>
+        <header className="App-header" onClick={this.handleShowClick}>        
+          <p >
             List-Redux
-          </p>
-          <Button.Group>
-          <Button disabled={visibility} onClick={this.handleShowClick}>
-            Show sidebar
-          </Button>
-          <Button disabled={!visibility} onClick={this.handleHideClick}>
-            Hide sidebar
-          </Button>
-        </Button.Group>
+          </p>          
         </header>
+      
 
-        <Sidebar.Pushable as={Segment}  style={{height:'-webkit-fill-available'}}>
+        <Sidebar.Pushable as={Segment}  style={{height:'-webkit-fill-available',margin:'auto'}}>
           <Sidebar
             as={Menu}
             animation='overlay'
@@ -47,7 +41,7 @@ class App extends Component{
             vertical
             visible={visibility}
             width='thin'
-            style={{width: '100%'}}
+            style={{width: '25%'}}
            
           >
            <ListItem/>
@@ -55,11 +49,11 @@ class App extends Component{
           </Sidebar>
 
           <Sidebar.Pusher>
-            <Segment basic>
-  
-               
+            <Segment basic onClick={this.handleShowClick} style={{width:'25%'}}>
+              <WriteTask />
             </Segment>
           </Sidebar.Pusher>
+
         </Sidebar.Pushable>
 
         

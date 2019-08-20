@@ -19,7 +19,7 @@ class ListaItems extends Component{
         });
 
         return(
-            <div className='barListItem'>
+            <div >
                 <Item.Group style={{padding:10 }}>
                   {ItemGrup}
                 </Item.Group>              
