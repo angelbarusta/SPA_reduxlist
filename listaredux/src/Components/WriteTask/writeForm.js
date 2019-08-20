@@ -39,9 +39,9 @@ class Write extends Component{
                    </Form.Field>
                   
                 </Form>
-                <div style={{display:'flex',justifyContent:'space-between',padding:10}}>
-                  <Button type='submit' style={{borderRadius:'2em'}}>Enviar</Button>
-                  <Icon name='delete' circular onClick={()=>this.handleSelectItem()}/>
+                <div style={{display:'flex',justifyContent:'space-between',padding:10}}>                  
+                  <Button style={{borderRadius:'2em'}} onClick={()=>this.handleSelectItem()}>Cancelar</Button>
+                  <Button type='submit' style={{borderRadius:'2em'}}>Guardar</Button>
                 </div>
               </Segment>
             </Grid.Column>
