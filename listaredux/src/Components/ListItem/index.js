@@ -22,7 +22,19 @@ class ListaItems extends Component{
     handleAdd=()=>{
 
         let addList=this.props.elements;//[] 
-        addList.push(ItemTask);
+        var idElem=this.props.idElemento;
+        var NameTask=this.props.nombreTask;
+        var DescTask= this.props.descripTask;
+        var FechTask=this.props.fechTask;
+        var AutorTask= this.props.autorTask;
+        var canItem=this.props.cantidadElem;
+        
+        addList.push( {
+            "nombre":NameTask,
+            "desc":DescTask,
+            "autor":AutorTask,
+            "fecha":FechTask
+        });
         this.props.addIdElemento();
         this.props.addListElement(addList); 
           
@@ -80,6 +92,11 @@ const mapStateToProps=(state)=>{
         elements:state.Items.elements,
         idElemento:state.Items.idElemento,
         cantidadElem:state.Items.cantidadElem,
+        haytask:state.Items.haytask,
+        nombreTask:state.Items.nombreTask,
+        descripTask:state.Items.descripTask,
+        fechTask:state.Items.fechTask,
+        autorTask:state.Items.autorTask,
     }
 }
 const mapDispatchToProps=(dispatch)=>{

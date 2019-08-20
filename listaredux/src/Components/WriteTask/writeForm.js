@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import { Grid, Segment, Image, Form, Checkbox, Button, TextArea, Icon } from 'semantic-ui-react';
-import { selectItem, nombreTarea, descTarea, fechTarea, autorTarea } from '../../Redux/Actions/Items';
+import { selectItem, nombreTarea, descTarea, fechTarea, autorTarea, addListElement } from '../../Redux/Actions/Items';
 
 class Write extends Component{
     handleSelectItem=()=>{
@@ -28,6 +28,32 @@ class Write extends Component{
       const fech = (a.value);
       this.props.fechTarea(fech);
     }
+    handleSave=()=>{
+      const addList=this.props.elements;//[]
+
+      var idElem=this.props.idElemento;
+      var NameTask=this.props.nombreTask;
+      var DescTask= this.props.descripTask;
+      var FechTask=this.props.fechTask;
+      var AutorTask= this.props.autorTask;
+      var canItem=this.props.cantidadElem;
+
+      var inde=idElem-1;
+
+      var editTask={
+        "nombre":NameTask,
+        "desc":DescTask,
+        "autor":AutorTask,
+        "fecha":FechTask
+      }
+      
+     addList.splice(inde, 1, editTask); 
+     
+
+         
+        this.props.addListElement(addList); 
+
+    }
     render(){
         var seleElemen=this.props.haytask;
         var idElem=this.props.idElemento;
@@ -36,7 +62,7 @@ class Write extends Component{
         var FechTask=this.props.fechTask;
         var AutorTask= this.props.autorTask;
         var canItem=this.props.cantidadElem;
-        
+
         return(
             <Grid stackable columns={1}>
 
@@ -59,16 +85,16 @@ class Write extends Component{
                    </div>
                    <Form.Field>
                         <label>Titulo de tarea</label>
-                        <input placeholder={NameTask} value={NameTask} onChange={(e)=>this.handleTitulo(e)}/>                       
+                        <input placeholder={NameTask} value={NameTask} onChange={(e)=>this.handleTitulo(e)}/>
                       </Form.Field>
                    <Form.Field>
                      <TextArea placeholder={DescTask} value={DescTask} onChange={(e)=>this.handleDesc(e)} style={{ minHeight: 240 }} />
                    </Form.Field>
-                  
+
                 </Form>
-                <div style={{display:'flex',justifyContent:'space-between',padding:10}}>                  
+                <div style={{display:'flex',justifyContent:'space-between',padding:10}}>
                   <Button style={{borderRadius:'2em'}} onClick={()=>this.handleSelectItem()}>Cancelar</Button>
-                  <Button type='submit' style={{borderRadius:'2em'}}>Guardar</Button>
+                  <Button type='submit' style={{borderRadius:'2em'}} onClick={()=>this.handleSave()}>Guardar</Button>
                 </div>
               </Segment>
             </Grid.Column>
@@ -101,6 +127,8 @@ const mapStateToProps=(state)=>{
         fechTask:state.Items.fechTask,
         autorTask:state.Items.autorTask,
         cantidadElem:state.Items.cantidadElem,
+        elements:state.Items.elements,
+        
     }
 }
 const mapDispatchToProps=(dispatch)=>{
@@ -119,7 +147,10 @@ const mapDispatchToProps=(dispatch)=>{
       },
       autorTarea(autor){
           dispatch(autorTarea(autor))
-      }
+      },
+      addListElement(addList){
+        dispatch(addListElement(addList))
+    }
     }
 }
 
