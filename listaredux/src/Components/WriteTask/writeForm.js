@@ -13,6 +13,8 @@ class Write extends Component{
         var idElem=this.props.idElemento;
         var NameTask=this.props.nombreTask;
         var DescTask= this.props.descripTask;
+        var FechTask=this.props.fechTask;
+        var AutorTask= this.props.autorTask;
         console.log('TTTT',seleElemen);
         return(
             <Grid stackable columns={1}>
@@ -27,11 +29,11 @@ class Write extends Component{
                    <div style={{display:'flex',justifyContent:'center'}}>
                       <Form.Field>
                         <label>Nombre del autor</label>
-                        <input placeholder='First Name' />
+                        <input placeholder={AutorTask} />
                       </Form.Field>
                       <Form.Field>
-                        <label>Apellidos del autor</label>
-                        <input placeholder='Last Name' />
+                        <label>Fecha</label>
+                        <input type='date' placeholder={FechTask} />
                       </Form.Field>
                    </div>
                    <Form.Field>
@@ -70,6 +72,8 @@ const mapStateToProps=(state)=>{
         idElemento:state.Items.idElemento,
         nombreTask:state.Items.nombreTask,
         descripTask:state.Items.descripTask,
+        fechTask:state.Items.fechTask,
+        autorTask:state.Items.autorTask,
     }
 }
 const mapDispatchToProps=(dispatch)=>{

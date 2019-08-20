@@ -31,3 +31,15 @@ export const descTarea=(desc)=>{
         desc,
     }
 }
+export const fechTarea=(fech)=>{
+    return{
+        type:types.FECH,
+        fech,
+    };
+};
+export const autorTarea=(autor)=>{
+    return{
+        type:types.AUTOR,
+        autor,
+    };
+};

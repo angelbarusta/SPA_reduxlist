@@ -4,15 +4,15 @@
             "id":1,
             "nombre":"Sensor de humedad de suelo",
             "desc":"Este sensor mide la humedad del suelo(tierra)",
-            "tipo":"Sencillo",
-            "fecha":"$30"
+            "autor":"Angel Eduardo Barusta Sanchez",
+            "fecha":"11/03/1995"
         },
         {
-            "id":1,
+            "id":2,
             "nombre":"Sensor de Temperatura",
             "desc":"Este sensor mide la temperatura ambiente",
-            "tipo":"Sencillo",
-            "fecha":"$30"
+            "autor":"Angel",
+            "fecha":"03/05/1997"
         }
     ]
    }
