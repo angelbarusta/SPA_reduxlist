@@ -1,4 +1,5 @@
-export const VNAVSI = "VNAVSI";
-export const VNAVNO = "VNAVNO";
-export const DUSER = "DUSER";
+
+export const VISIBILI = "VISIBILI";
+export const SELECCIONANDOTEM = 'SELECCIONANDOTEM';
+
 
