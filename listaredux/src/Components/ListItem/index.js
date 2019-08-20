@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { Button, Popup, Item, Image, Segment } from 'semantic-ui-react'
 import '../../App.css';
 import {ItemTask} from './item.json';
-import { selectItem, identifi, nombreTarea, descTarea, fechTarea, autorTarea } from '../../Redux/Actions/Items';
+import { selectItem, identifi, nombreTarea, descTarea, fechTarea, autorTarea, addIdElemento, addListElement } from '../../Redux/Actions/Items';
 
 //
 class ListaItems extends Component{
@@ -19,22 +19,46 @@ class ListaItems extends Component{
         this.props.fechTarea(fech);
         this.props.autorTarea(autor);
     }
+    handleAdd=()=>{
+        this.props.addIdElemento();
+
+        let addList=[];
+        addList.push(ItemTask);
+
+        this.props.addListElement(addList);  
+    }
     render(){
-        const ItemGrup=ItemTask.map((s,key)=>{
-            var idkey=key+1;
-            var nom=s.nombre;
-            var desc=s.desc;
-            var fech=s.fecha;
-            var autor=s.autor;
-            return(                
-                 <Item onClick={()=>this.handleSelectItem(idkey,nom,desc,fech,autor)}>
-                  <Item.Content style={{background: 'chocolate',padding:10,borderRadius:'2em'}}> 
-                  <h4 style={{margin:'auto'}}>Elemento # {idkey}</h4>
-                   <p> {s.nombre}</p>                    
-                  </Item.Content>
-                </Item>
-            )
-        });
+        var ListElem=this.props.elements[0];
+        var idEl=this.props.idElemento;
+
+        if (idEl>0) {
+            var ItemGrup=ListElem.map((s,key)=>{
+                var idkey=key+1;
+                var nom=s.nombre;
+                var desc=s.desc;
+                var fech=s.fecha;
+                var autor=s.autor;
+                return(                
+                     <Item onClick={()=>this.handleSelectItem(idkey,nom,desc,fech,autor)}>
+                      <Item.Content style={{background: 'chocolate',padding:10,borderRadius:'2em'}}> 
+                      <h4 style={{margin:'auto'}}>Elemento # {idkey}</h4>
+                       <p> {s.nombre}</p>                    
+                      </Item.Content>
+                    </Item>
+                )
+            });
+        }else{
+            var ItemGrup=
+                (                
+                     <Item >
+                      <Item.Content style={{background: 'chocolate',padding:10,borderRadius:'2em'}}> 
+                      <h4 style={{margin:'auto'}}>Sin elementos</h4>
+                       <p> Haz click en el boton Agregar elemento</p>                    
+                      </Item.Content>
+                    </Item>
+                )
+            
+        }
 
         return(
             <div >
@@ -44,7 +68,7 @@ class ListaItems extends Component{
                   </div>
                 </Item.Group>  
                 <Segment style={{top:480,background:'#1b1c1d'}}>
-                  <Button style={{borderRadius:'2em'}}>Agregar elemento</Button> 
+                  <Button style={{borderRadius:'2em'}} onClick={()=>this.handleAdd()}>Agregar elemento</Button> 
                 </Segment>           
             </div>
         )
@@ -53,7 +77,8 @@ class ListaItems extends Component{
 
 const mapStateToProps=(state)=>{
     return{
-
+        elements:state.Items.elements,
+        idElemento:state.Items.idElemento,
     }
 }
 const mapDispatchToProps=(dispatch)=>{
@@ -75,6 +100,12 @@ const mapDispatchToProps=(dispatch)=>{
         },
         autorTarea(autor){
             dispatch(autorTarea(autor))
+        },
+        addIdElemento(){
+            dispatch(addIdElemento())
+        },
+        addListElement(addList){
+            dispatch(addListElement(addList))
         }
         
     }

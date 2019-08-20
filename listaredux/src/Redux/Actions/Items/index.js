@@ -43,3 +43,14 @@ export const autorTarea=(autor)=>{
         autor,
     };
 };
+export const addIdElemento=()=>{
+    return{
+        type:types.ADDID,
+    };
+};
+export const addListElement=(addList)=>{
+    return{
+        type:types.ADDELEM,
+        addList,
+    };
+};

@@ -1,12 +1,17 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import { Grid, Segment, Image, Form, Checkbox, Button, TextArea, Icon } from 'semantic-ui-react';
-import { selectItem } from '../../Redux/Actions/Items';
+import { selectItem, nombreTarea, descTarea, fechTarea, autorTarea } from '../../Redux/Actions/Items';
 
 class Write extends Component{
     handleSelectItem=()=>{
         var v=false;
         this.props.selectItem(v);
+    }
+    handleTitulo=(e)=>{
+      const a = e.target;
+      const nom = (a.value);
+      this.props.nombreTarea(nom);
     }
     render(){
         var seleElemen=this.props.haytask;
@@ -15,7 +20,7 @@ class Write extends Component{
         var DescTask= this.props.descripTask;
         var FechTask=this.props.fechTask;
         var AutorTask= this.props.autorTask;
-        console.log('TTTT',seleElemen);
+        // console.log('TTTT',seleElemen);
         return(
             <Grid stackable columns={1}>
 
@@ -29,19 +34,19 @@ class Write extends Component{
                    <div style={{display:'flex',justifyContent:'center'}}>
                       <Form.Field>
                         <label>Nombre del autor</label>
-                        <input placeholder={AutorTask} />
+                        <input placeholder={AutorTask} value={AutorTask}/>
                       </Form.Field>
                       <Form.Field>
                         <label>Fecha</label>
-                        <input type='date' placeholder={FechTask} />
+                        <input type='date' placeholder={FechTask} value={FechTask} />
                       </Form.Field>
                    </div>
                    <Form.Field>
                         <label>Titulo de tarea</label>
-                        <input placeholder={NameTask} />                       
+                        <input placeholder={NameTask} value={NameTask} onChange={(e)=>this.handleTitulo(e)}/>                       
                       </Form.Field>
                    <Form.Field>
-                     <TextArea placeholder={DescTask} style={{ minHeight: 240 }} />
+                     <TextArea placeholder={DescTask} value={DescTask} style={{ minHeight: 240 }} />
                    </Form.Field>
                   
                 </Form>
@@ -81,6 +86,18 @@ const mapDispatchToProps=(dispatch)=>{
         selectItem(i){
             dispatch(selectItem(i))
         },
+        nombreTarea(n){
+          dispatch(nombreTarea(n))
+      },
+      descTarea(desc){
+          dispatch(descTarea(desc))
+      },
+      fechTarea(fech){
+          dispatch(fechTarea(fech))
+      },
+      autorTarea(autor){
+          dispatch(autorTarea(autor))
+      }
     }
 }
 

@@ -1,15 +1,19 @@
 import * as types from '../../../Redux/Types';
 
 import moment from 'moment';
+import {ItemTask} from '../../../Components/ListItem/item.json';
 
 const initialState = {
     visibility:false,
     haytask:false, 
-    idElemento:1,
+    idElemento:0,
+    cantidadElem:0,
     nombreTask:'Titulo de la tarea...',
     descripTask:'Descripcion de la tarea...',
     fechTask: moment(new Date()).format('DD/MM/YYYY'),
     autorTask:'Nombre del autor...',
+
+    elements:{},
 };
 
 const reducer=(state = initialState, action )=>{
@@ -49,7 +53,17 @@ const reducer=(state = initialState, action )=>{
             return{
                 ...state,
                 autorTask:action.autor,
-            }                  
+            }
+        case types.ADDID:
+            return{
+                ...state,
+                cantidadElem:state.cantidadElem+1,
+            }
+        case types.ADDELEM:
+            return{
+                ...state,
+                elements:action.addList,
+            }                      
         default:
            return state;
     }
