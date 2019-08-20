@@ -49,7 +49,7 @@ class App extends Component{
           </Sidebar>
 
           <Sidebar.Pusher>
-            <Segment basic onClick={this.handleShowClick} style={{width:'25%'}}>
+            <Segment basic style={{width:'100%'}}>
               <WriteTask />
             </Segment>
           </Sidebar.Pusher>
