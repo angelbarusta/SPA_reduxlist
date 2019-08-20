@@ -12,7 +12,7 @@ class WriteTask extends Component{
     render(){
         return(
             <div style={{display:'flex',justifyContent:'space-between'}}>
-               <Card onClick={this.handleShowClick} style={{width:'24%',margin:0}}>
+               <Card onClick={this.handleShowClick} style={{width:'24%',margin:0,height:180}}>
                   <Card.Content>
                     <Card.Header>Recent Activity</Card.Header>
                   </Card.Content>
@@ -31,7 +31,7 @@ class WriteTask extends Component{
                   </Card.Content>
                 </Card>
 
-               <Card style={{margin:0,width:'75%'}} >
+               <Card style={{margin:0,width:'75%',height:'-webkit-fill-available'}} >
                  <writeForm/>
                </Card>
 
