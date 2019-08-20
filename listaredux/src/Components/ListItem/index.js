@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import { Button, Popup, Item, Image } from 'semantic-ui-react'
+import { Button, Popup, Item, Image, Segment } from 'semantic-ui-react'
 import '../../App.css';
 import {ItemTask} from './item.json';
 import { selectItem } from '../../Redux/Actions/Items';
@@ -29,7 +29,10 @@ class ListaItems extends Component{
                   <div >
                     {ItemGrup}
                   </div>
-                </Item.Group>              
+                </Item.Group>  
+                <Segment style={{top:480,background:'#1b1c1d'}}>
+                  <Button style={{borderRadius:'2em'}}>Agregar</Button> 
+                </Segment>           
             </div>
         )
     }
