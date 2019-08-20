@@ -21,7 +21,7 @@ class ListaItems extends Component{
     }
     handleAdd=()=>{
 
-        let addList=this.props.elements;//[]
+        let addList=this.props.elements;//[] 
         addList.push(ItemTask);
         this.props.addIdElemento();
         this.props.addListElement(addList); 

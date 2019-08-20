@@ -13,6 +13,21 @@ class Write extends Component{
       const nom = (a.value);
       this.props.nombreTarea(nom);
     }
+    handleDesc=(e)=>{
+      const a = e.target;
+      const desc = (a.value);
+      this.props.descTarea(desc);
+    }
+    handleAutor=(e)=>{
+      const a = e.target;
+      const autor = (a.value);
+      this.props.autorTarea(autor);
+    }
+    handleFecha=(e)=>{
+      const a = e.target;
+      const fech = (a.value);
+      this.props.fechTarea(fech);
+    }
     render(){
         var seleElemen=this.props.haytask;
         var idElem=this.props.idElemento;
@@ -34,11 +49,11 @@ class Write extends Component{
                    <div style={{display:'flex',justifyContent:'center'}}>
                       <Form.Field>
                         <label>Nombre del autor</label>
-                        <input placeholder={AutorTask} value={AutorTask}/>
+                        <input placeholder={AutorTask} value={AutorTask} onChange={(e)=>this.handleAutor(e)}/>
                       </Form.Field>
                       <Form.Field>
                         <label>Fecha</label>
-                        <input type='date' placeholder={FechTask} value={FechTask} />
+                        <input type='date' placeholder={FechTask} value={FechTask} onChange={(e)=>this.handleFecha(e)}/>
                       </Form.Field>
                    </div>
                    <Form.Field>
@@ -46,7 +61,7 @@ class Write extends Component{
                         <input placeholder={NameTask} value={NameTask} onChange={(e)=>this.handleTitulo(e)}/>                       
                       </Form.Field>
                    <Form.Field>
-                     <TextArea placeholder={DescTask} value={DescTask} style={{ minHeight: 240 }} />
+                     <TextArea placeholder={DescTask} value={DescTask} onChange={(e)=>this.handleDesc(e)} style={{ minHeight: 240 }} />
                    </Form.Field>
                   
                 </Form>
