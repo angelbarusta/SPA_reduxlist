@@ -4,6 +4,7 @@ const initialState = {
     visibility:false,
     haytask:false, 
     idElemento:1,
+    nombreTask:'Titulo de la tarea...',
 };
 
 const reducer=(state = initialState, action )=>{
@@ -23,7 +24,12 @@ const reducer=(state = initialState, action )=>{
             return{
                 ...state,
                 idElemento:action.idkey,
-            }         
+            }
+        case types.NOMBRETASK:
+            return{
+                ...state,
+                nombreTask:action.nom,
+            }             
         default:
            return state;
     }

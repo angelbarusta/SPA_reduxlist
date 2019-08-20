@@ -19,3 +19,9 @@ export const identifi=(idkey)=>{
         idkey,
     };
 };
+export const nombreTarea=(nom)=>{
+    return{
+        type:types.NOMBRETASK,
+        nom,
+    }
+}

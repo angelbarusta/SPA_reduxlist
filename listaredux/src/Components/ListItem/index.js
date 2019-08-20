@@ -3,21 +3,25 @@ import {connect} from 'react-redux';
 import { Button, Popup, Item, Image, Segment } from 'semantic-ui-react'
 import '../../App.css';
 import {ItemTask} from './item.json';
-import { selectItem, identifi } from '../../Redux/Actions/Items';
+import { selectItem, identifi, nombreTarea } from '../../Redux/Actions/Items';
 
 //
 class ListaItems extends Component{
-    handleSelectItem=(idkey)=>{
+   
+    handleSelectItem=(idkey,nom)=>{
         var v=true;
-        console.log('BB',idkey);
+
+        console.log('BB',nom);
         this.props.identifi(idkey);
         this.props.selectItem(v);
+        this.props.nombreTarea(nom);
     }
     render(){
         const ItemGrup=ItemTask.map((s,key)=>{
             var idkey=key+1;
+            var nom=s.nombre;
             return(                
-                 <Item onClick={(i)=>this.handleSelectItem(idkey)}>
+                 <Item onClick={()=>this.handleSelectItem(idkey,nom)}>
                   <Item.Content style={{background: 'chocolate',padding:10,borderRadius:'2em'}}> 
                   <h4 style={{margin:'auto'}}>Elemento # {idkey}</h4>
                    <p> {s.nombre}</p>                    
@@ -53,6 +57,9 @@ const mapDispatchToProps=(dispatch)=>{
         },
         identifi(idkey){
             dispatch(identifi(idkey))
+        },
+        nombreTarea(n){
+            dispatch(nombreTarea(n))
         },
         
     }

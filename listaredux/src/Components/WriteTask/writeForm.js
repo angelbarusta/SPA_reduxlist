@@ -11,6 +11,7 @@ class Write extends Component{
     render(){
         var seleElemen=this.props.haytask;
         var idElem=this.props.idElemento;
+        var NameTask=this.props.nombreTask;
         console.log('TTTT',seleElemen);
         return(
             <Grid stackable columns={1}>
@@ -24,17 +25,17 @@ class Write extends Component{
                 <Form>
                    <div style={{display:'flex',justifyContent:'center'}}>
                       <Form.Field>
-                        <label>Nombre</label>
+                        <label>Nombre del autor</label>
                         <input placeholder='First Name' />
                       </Form.Field>
                       <Form.Field>
-                        <label>Apellidos</label>
+                        <label>Apellidos del autor</label>
                         <input placeholder='Last Name' />
                       </Form.Field>
                    </div>
                    <Form.Field>
                         <label>Titulo de tarea</label>
-                        <input placeholder='Titulo...' />                       
+                        <input placeholder={NameTask} />                       
                       </Form.Field>
                    <Form.Field>
                      <TextArea placeholder='Descrpcion...' style={{ minHeight: 240 }} />
@@ -66,6 +67,7 @@ const mapStateToProps=(state)=>{
     return{
         haytask:state.Items.haytask,
         idElemento:state.Items.idElemento,
+        nombreTask:state.Items.nombreTask,
     }
 }
 const mapDispatchToProps=(dispatch)=>{
