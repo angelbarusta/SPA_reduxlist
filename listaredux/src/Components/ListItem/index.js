@@ -22,6 +22,9 @@ class ListaItems extends Component {
     // //console.log('BB',nom);
     this.props.identifi(idkey);
     this.props.selectItem(v);
+
+    let addList = this.props.elements; //[]
+    this.props.addListElement(addList);
     // this.props.nombreTarea(nom);
     // this.props.descTarea(desc);
     // this.props.fechTarea(fech);
@@ -29,34 +32,25 @@ class ListaItems extends Component {
   };
   handleAdd = () => {
     let addList = this.props.elements; //[]
-    // var idElem=this.props.idElemento;
-    // var NameTask=this.props.nombreTask;
-    // var DescTask= this.props.descripTask;
-    // var FechTask=this.props.fechTask;
-    // var AutorTask= this.props.autorTask;
-    // var canItem=this.props.cantidadElem;
 
     addList.push(ItemTask);
     this.props.addIdElemento();
     this.props.addListElement(addList);
   };
-  componentDidMount() {
-    var v = true;
 
-    // //console.log('BB',nom);
-    this.props.identifi(idkey);
-    this.props.selectItem(v);
-    this.props.nombreTarea(nom);
-    this.props.descTarea(desc);
-    this.props.fechTarea(fech);
-    this.props.autorTarea(autor);
-  }
   render() {
-    var ListElem = this.props.elements;
+    var addList = this.props.elements;
     var idEl = this.props.cantidadElem;
 
     if (idEl > 0) {
-      var ItemGrup = ListElem.map((s, key) => {
+      var i = this.props.idArr;
+    } else {
+      var i = 0;
+    }
+    let list = [addList[i]];
+
+    if (idEl > 0) {
+      var ItemGrup = addList.map((s, key) => {
         var idkey = key + 1;
         var nom = s.nombre;
         var desc = s.desc;
@@ -70,8 +64,7 @@ class ListaItems extends Component {
                 background: "chocolate",
                 padding: 10,
                 borderRadius: "2em"
-              }}
-            >
+              }}>
               <h4 style={{ margin: "auto" }}>Elemento # {idkey}</h4>
               <p> {nom}</p>
             </Item.Content>
@@ -86,8 +79,7 @@ class ListaItems extends Component {
               background: "chocolate",
               padding: 10,
               borderRadius: "2em"
-            }}
-          >
+            }}>
             <h4 style={{ margin: "auto" }}>Sin elementos</h4>
             <p> Haz click en el boton Agregar elemento</p>
           </Item.Content>
@@ -103,8 +95,7 @@ class ListaItems extends Component {
         <Segment style={{ top: 480, background: "#1b1c1d" }}>
           <Button
             style={{ borderRadius: "2em" }}
-            onClick={() => this.handleAdd()}
-          >
+            onClick={() => this.handleAdd()}>
             Agregar elemento
           </Button>
         </Segment>
@@ -122,7 +113,8 @@ const mapStateToProps = (state) => {
     nombreTask: state.Items.nombreTask,
     descripTask: state.Items.descripTask,
     fechTask: state.Items.fechTask,
-    autorTask: state.Items.autorTask
+    autorTask: state.Items.autorTask,
+    idArr: state.Items.idArr
   };
 };
 const mapDispatchToProps = (dispatch) => {

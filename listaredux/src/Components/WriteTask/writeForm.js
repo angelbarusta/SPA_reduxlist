@@ -17,7 +17,8 @@ import {
   descTarea,
   fechTarea,
   autorTarea,
-  addListElement
+  addListElement,
+  addIdElemento
 } from "../../Redux/Actions/Items";
 
 class Write extends Component {
@@ -60,7 +61,7 @@ class Write extends Component {
     var FechTask = this.props.fechTask;
     var AutorTask = this.props.autorTask;
     var canItem = this.props.cantidadElem;
-
+    this.props.addIdElemento();
     var inde = idElem - 1;
 
     var editTask = {
@@ -91,7 +92,7 @@ class Write extends Component {
               <h4>Estas editando la tarea #{idElem}</h4>
               <Icon circular name='user' style={{ fontSize: "4.5em" }} />
               <Form>
-                <div style={{ display: "flex", justifyContent: "center" }}>
+                {/* <div style={{ display: "flex", justifyContent: "center" }}>
                   <Form.Field>
                     <Popup
                       style={{ background: "rgba(241, 81, 81, 0.87)" }}
@@ -117,7 +118,7 @@ class Write extends Component {
                       onChange={(e) => this.handleFecha(e)}
                     />
                   </Form.Field>
-                </div>
+                </div> */}
                 <Form.Field>
                   <Popup
                     content='Apunta el nombre de la tarea'
@@ -206,6 +207,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     addListElement(addList) {
       dispatch(addListElement(addList));
+    },
+    addIdElemento() {
+      dispatch(addIdElemento());
     }
   };
 };

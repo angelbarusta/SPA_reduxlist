@@ -8,6 +8,7 @@ const initialState = {
   haytask: false,
   idElemento: 0,
   cantidadElem: 0,
+  idArr: 0,
   nombreTask: "Titulo de la tarea...",
   descripTask: "Descripcion de la tarea...",
   fechTask: moment(new Date()).format("DD/MM/YYYY"),
@@ -57,7 +58,8 @@ const reducer = (state = initialState, action) => {
     case types.ADDID:
       return {
         ...state,
-        cantidadElem: state.cantidadElem + 1
+        cantidadElem: state.cantidadElem + 1,
+        idArr: state.cantidadElem
       };
     case types.ADDELEM:
       return {
