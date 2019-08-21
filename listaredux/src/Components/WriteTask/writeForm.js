@@ -92,7 +92,7 @@ class Write extends Component {
               <h4>Estas editando la tarea #{idElem}</h4>
               <Icon circular name='user' style={{ fontSize: "4.5em" }} />
               <Form>
-                {/* <div style={{ display: "flex", justifyContent: "center" }}>
+                <div style={{ display: "flex", justifyContent: "center" }}>
                   <Form.Field>
                     <Popup
                       style={{ background: "rgba(241, 81, 81, 0.87)" }}
@@ -118,7 +118,7 @@ class Write extends Component {
                       onChange={(e) => this.handleFecha(e)}
                     />
                   </Form.Field>
-                </div> */}
+                </div>
                 <Form.Field>
                   <Popup
                     content='Apunta el nombre de la tarea'
