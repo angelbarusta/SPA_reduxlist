@@ -23,12 +23,13 @@ class WriteTask extends Component {
   };
   render() {
     var cant = this.props.numElem;
+    var { autorTask, nombreTask, fechTask } = this.props;
 
     return (
       <div className='barListItem'>
         <Card onClick={this.handleShowClick} className='eventNoti'>
           <Card.Content>
-            <Card.Header>Recent Activity</Card.Header>
+            <Card.Header>Actividad reciente</Card.Header>
           </Card.Content>
           <Card.Content>
             <Feed>
@@ -37,10 +38,27 @@ class WriteTask extends Component {
                   {cant}
                 </Label>
                 <Feed.Content>
-                  <Feed.Date content='1 day ago' />
-                  <Feed.Summary>
-                    You added <a>Jenny Hess</a> to your <a>coworker</a> group.
-                  </Feed.Summary>
+                  <Feed.Date
+                    content='Numero de tareas'
+                    style={{ paddingBottom: 10 }}
+                  />
+                  <Feed.Date content={fechTask} />
+                  {cant > 0 ? (
+                    <Feed.Summary>
+                      {autorTask} <a> a creado la tarea </a>
+                      {nombreTask}
+                      {fechTask == undefined ? (
+                        <div>
+                          <a> de la fecha </a>
+                          <div>{fechTask}</div>
+                        </div>
+                      ) : (
+                        <a> Fecha sin definir </a>
+                      )}
+                    </Feed.Summary>
+                  ) : (
+                    <Feed.Summary>Sin Tareas</Feed.Summary>
+                  )}
                 </Feed.Content>
               </Feed.Event>
             </Feed>
@@ -60,7 +78,11 @@ const mapStateToProps = (state) => {
     visibility: state.Items.visibility,
     elements: state.Items.elements,
     cantidadElem: state.Items.cantidadElem,
-    numElem: state.Items.numElem
+    numElem: state.Items.numElem,
+    nombreTask: state.Items.nombreTask,
+    descripTask: state.Items.descripTask,
+    fechTask: state.Items.fechTask,
+    autorTask: state.Items.autorTask
   };
 };
 const mapDispatchToProps = (dispatch) => {

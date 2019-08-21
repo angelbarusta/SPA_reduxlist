@@ -9,7 +9,8 @@ import {
   Button,
   TextArea,
   Icon,
-  Popup
+  Popup,
+  Label
 } from "semantic-ui-react";
 import {
   selectItem,
@@ -89,7 +90,15 @@ class Write extends Component {
         {seleElemen ? (
           <Grid.Column>
             <Segment style={{ height: "-webkit-fill-available" }}>
-              <h4>Estas editando la tarea #{idElem}</h4>
+              <h4>
+                Estas editando la tarea #
+                <Label
+                  circular
+                  color={"blue"}
+                  style={{ width: 10, height: 10, padding: 10 }}>
+                  {idElem}
+                </Label>
+              </h4>
               <Icon circular name='user' style={{ fontSize: "4.5em" }} />
               <Form>
                 <div style={{ display: "flex", justifyContent: "center" }}>
