@@ -16,7 +16,7 @@ import {
 
 //
 class ListaItems extends Component {
-  handleSelectItem = (idkey) => {
+  handleSelectItem = (idkey, nom, desc, fech, autor) => {
     var v = true;
 
     // //console.log('BB',nom);
@@ -25,10 +25,10 @@ class ListaItems extends Component {
 
     let addList = this.props.elements; //[]
     this.props.addListElement(addList);
-    // this.props.nombreTarea(nom);
-    // this.props.descTarea(desc);
-    // this.props.fechTarea(fech);
-    // this.props.autorTarea(autor);
+    this.props.nombreTarea(nom);
+    this.props.descTarea(desc);
+    this.props.fechTarea(fech);
+    this.props.autorTarea(autor);
   };
   handleAdd = () => {
     let addList = this.props.elements; //[]
@@ -58,7 +58,10 @@ class ListaItems extends Component {
         var autor = s.autor;
         //onClick={()=>this.handleSelectItem(idkey,nom,desc,fech,autor)}
         return (
-          <Item onClick={() => this.handleSelectItem(idkey)}>
+          <Item
+            onClick={() =>
+              this.handleSelectItem(idkey, nom, desc, fech, autor)
+            }>
             <Item.Content
               style={{
                 background: "chocolate",
