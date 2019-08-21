@@ -95,9 +95,8 @@ class Write extends Component {
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <Form.Field>
                     <Popup
-                      style={{ background: "rgba(241, 81, 81, 0.87)" }}
                       content='Es necesario ingresar quien Edita'
-                      trigger={<label>Nombre del autor</label>}
+                      trigger={<label>Autor</label>}
                     />
 
                     <input

@@ -8,6 +8,7 @@ const initialState = {
   haytask: false,
   idElemento: 0,
   cantidadElem: 0,
+  numElem: 0,
   idArr: 0,
   nombreTask: "Titulo de la tarea...",
   descripTask: "Descripcion de la tarea...",
@@ -65,6 +66,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         elements: action.addList
+      };
+    case types.CONTEO:
+      return {
+        ...state,
+        numElem: state.numElem + 1
       };
     default:
       return state;

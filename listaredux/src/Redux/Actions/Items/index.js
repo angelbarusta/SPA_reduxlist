@@ -53,3 +53,8 @@ export const addListElement = (addList) => {
     addList
   };
 };
+export const conteo = () => {
+  return {
+    type: types.CONTEO
+  };
+};

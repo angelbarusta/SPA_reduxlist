@@ -22,6 +22,8 @@ class WriteTask extends Component {
     this.props.visibilidad(v);
   };
   render() {
+    var cant = this.props.numElem;
+
     return (
       <div className='barListItem'>
         <Card onClick={this.handleShowClick} className='eventNoti'>
@@ -32,7 +34,7 @@ class WriteTask extends Component {
             <Feed>
               <Feed.Event>
                 <Label circular color={"red"} style={{ width: 10, height: 10 }}>
-                  1
+                  {cant}
                 </Label>
                 <Feed.Content>
                   <Feed.Date content='1 day ago' />
@@ -55,7 +57,10 @@ class WriteTask extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    visibility: state.Items.visibility
+    visibility: state.Items.visibility,
+    elements: state.Items.elements,
+    cantidadElem: state.Items.cantidadElem,
+    numElem: state.Items.numElem
   };
 };
 const mapDispatchToProps = (dispatch) => {

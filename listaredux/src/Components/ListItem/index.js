@@ -11,7 +11,8 @@ import {
   fechTarea,
   autorTarea,
   addIdElemento,
-  addListElement
+  addListElement,
+  conteo
 } from "../../Redux/Actions/Items";
 
 //
@@ -35,6 +36,7 @@ class ListaItems extends Component {
 
     addList.push(ItemTask);
     this.props.addIdElemento();
+    this.props.conteo();
     this.props.addListElement(addList);
   };
 
@@ -76,7 +78,7 @@ class ListaItems extends Component {
       });
     } else {
       var ItemGrup = (
-        <Item>
+        <Item onClick={() => this.handleAdd()}>
           <Item.Content
             style={{
               background: "chocolate",
@@ -145,6 +147,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     addListElement(addList) {
       dispatch(addListElement(addList));
+    },
+    conteo() {
+      dispatch(conteo());
     }
   };
 };
