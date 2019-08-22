@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./App.css";
 import ListItem from "./Components/ListItem";
+import LogoRedux from "./Imagenes/Reduxxx.png";
 import {
   Button,
   Header,
@@ -32,7 +33,10 @@ class App extends Component {
     return (
       <div className='App'>
         <header className='App-header' onClick={this.handleShowClick}>
-          <p>List-Redux</p>
+          <div className='Header_'>
+            <Image src={LogoRedux} style={{ width: 50 }} />
+            <p>List-Redux</p>
+          </div>
         </header>
 
         <Sidebar.Pushable
