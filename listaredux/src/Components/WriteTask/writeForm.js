@@ -19,7 +19,8 @@ import {
   fechTarea,
   autorTarea,
   addListElement,
-  addIdElemento
+  addIdElemento,
+  visibilidad
 } from "../../Redux/Actions/Items";
 
 class Write extends Component {
@@ -75,6 +76,10 @@ class Write extends Component {
     addList.splice(inde, 1, editTask);
 
     this.props.addListElement(addList);
+  };
+  handleShowClick = () => {
+    var v = true;
+    this.props.visibilidad(v);
   };
   render() {
     var seleElemen = this.props.haytask;
@@ -172,9 +177,29 @@ class Write extends Component {
             <Segment style={{ height: "-webkit-fill-available" }}>
               <Icon circular name='file' style={{ fontSize: "4.5em" }} />
               {canItem > 0 ? (
-                <h4>No has seleccionado un elemento</h4>
+                <div>
+                  <h4>No has seleccionado un elemento</h4>
+                  <div onClick={() => this.handleShowClick()}>
+                    <p>Selecciona un elemento</p>
+                    <Icon
+                      name='edit'
+                      circular
+                      style={{ fontSize: "1.5em", cursor: "pointer" }}
+                    />
+                  </div>
+                </div> //handleShowClick
               ) : (
-                <h4>No has creado ningun elemento, crea uno para iniciar</h4>
+                <div>
+                  <h4>No has creado ningun elemento, crea uno para iniciar</h4>
+                  <div onClick={() => this.handleShowClick()}>
+                    <p>Añade un elemento</p>
+                    <Icon
+                      name='add'
+                      circular
+                      style={{ fontSize: "1.5em", cursor: "pointer" }}
+                    />
+                  </div>
+                </div> //handleShowClick
               )}
             </Segment>
           </Grid.Column>
@@ -218,6 +243,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     addIdElemento() {
       dispatch(addIdElemento());
+    },
+    visibilidad(v) {
+      dispatch(visibilidad(v));
     }
   };
 };
