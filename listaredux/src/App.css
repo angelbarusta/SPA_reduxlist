@@ -30,7 +30,8 @@
 .eventNoti{
   width:24%;
   margin:0px !important;
-  height:180px; 
+  /* height:180px;  */
+  height: fit-content;
 }
 .WriteBloc{
   margin:0px !important;
@@ -61,6 +62,10 @@
   border-radius: 2em;
   cursor: pointer;
 }
+.flex_{
+  display: flex;
+  justify-content: space-between;
+}
 @media only screen and (max-width: 600px) {
   .barListItem{
     display:block;
@@ -68,8 +73,9 @@
   .eventNoti{
     width:24%;
     margin:auto !important;
-    padding-bottom: 10px;
-    height:180px; 
+    padding-bottom: 30px;
+    /* height:180px;  */
+    height: fit-content;
   }
   .WriteBloc{
     margin:auto !important;

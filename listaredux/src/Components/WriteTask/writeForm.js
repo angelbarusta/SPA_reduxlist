@@ -99,7 +99,7 @@ class Write extends Component {
                   {idElem}
                 </Label>
               </h4>
-              <Icon circular name='user' style={{ fontSize: "4.5em" }} />
+              <Icon circular name='file' style={{ fontSize: "4.5em" }} />
               <Form>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <Form.Field>

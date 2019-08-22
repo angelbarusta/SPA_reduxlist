@@ -42,7 +42,10 @@ class WriteTask extends Component {
                     content='Numero de tareas'
                     style={{ paddingBottom: 10 }}
                   />
-                  <Feed.Date content={fechTask} />
+                  <div className='flex_'>
+                    <Feed.Date content={fechTask} />
+                    <Icon name='time' />
+                  </div>
                   {cant > 0 ? (
                     <Feed.Summary>
                       {autorTask} <a> a creado la tarea </a>
@@ -65,9 +68,9 @@ class WriteTask extends Component {
           </Card.Content>
         </Card>
 
-        <Card className='WriteBloc'>
+        <div className='WriteBloc'>
           <Write />
-        </Card>
+        </div>
       </div>
     );
   }
