@@ -1,6 +1,7 @@
 # SPA_reduxlist
 
 
+![alt text](https://github.com/angelbarusta/SPA_reduxlist/blob/master/4_listredux.png) 
 # npm i
 
 ## Available Scripts
