@@ -10,3 +10,4 @@ export const RSID = "RSID";
 export const ADDELEM = "ADDELEM";
 export const CONTEO = "CONTEO";
 export const RST = "RST";
+export const TIMER = "TIMER";

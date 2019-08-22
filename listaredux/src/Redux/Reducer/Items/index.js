@@ -14,6 +14,7 @@ const initialState = {
   nombreTask: "Titulo de la tarea...",
   descripTask: "Descripcion de la tarea...",
   fechTask: moment(new Date()).format("DD/MM/YYYY"),
+  tim: moment(new Date()).format("hh:mm:ss"),
   autorTask: "Nombre del autor...",
 
   elements: []
@@ -89,6 +90,11 @@ const reducer = (state = initialState, action) => {
         numElem: state.numElem - 1
         // idArr: state.cantidadElem - 1,
         // idElemento: state.idElemento - 1
+      };
+    case types.TIMER:
+      return {
+        ...state,
+        tim: action.timeR
       };
     default:
       return state;

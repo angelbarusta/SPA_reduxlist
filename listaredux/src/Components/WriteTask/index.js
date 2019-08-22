@@ -13,28 +13,51 @@ import {
   Label
 } from "semantic-ui-react";
 import Write from "./writeForm";
-import { visibilidad, selectItem } from "../../Redux/Actions/Items";
+import { visibilidad, selectItem, Time } from "../../Redux/Actions/Items";
 import "../../App.css";
+import moment from "moment";
 
 class WriteTask extends Component {
+  constructor() {
+    super();
+    setTimeout(this.muestraReloj, 1000); //1 Hra=3600000 1 Min=60000 1 mili=1000
+  }
   handleShowClick = () => {
     var v = true;
     this.props.visibilidad(v);
   };
+  muestraReloj = () => {
+    var timeR = moment(Date()).format("hh:mm:ss ");
+    console.log("TIME", timeR);
+    this.props.Time(timeR);
+  };
+  componentWillUpdate() {
+    setTimeout(this.muestraReloj, 1000); //1 Hra=3600000 1 Min=60000 1 mili=1000
+  }
   render() {
     var cant = this.props.numElem;
     var { autorTask, nombreTask, fechTask } = this.props;
-
+    if (cant > 0) {
+      var colr = "red";
+    } else {
+      var colr = "green";
+    }
+    var DateR = moment(Date()).format("DD/MM/YYYY");
+    var { tim } = this.props;
     return (
       <div className='barListItem'>
         <Card onClick={this.handleShowClick} className='eventNoti'>
           <Card.Content>
             <Card.Header>Resumen</Card.Header>
+            <div>
+              <p>Hoy es: {DateR}</p>
+              <p>Hora: {tim}</p>
+            </div>
           </Card.Content>
           <Card.Content>
             <Feed>
               <Feed.Event>
-                <Label circular color={"red"} style={{ width: 10, height: 10 }}>
+                <Label circular color={colr} style={{ width: 10, height: 10 }}>
                   {cant}
                 </Label>
                 <Feed.Content>
@@ -85,7 +108,8 @@ const mapStateToProps = (state) => {
     nombreTask: state.Items.nombreTask,
     descripTask: state.Items.descripTask,
     fechTask: state.Items.fechTask,
-    autorTask: state.Items.autorTask
+    autorTask: state.Items.autorTask,
+    tim: state.Items.tim
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -95,6 +119,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     selectItem(i) {
       dispatch(selectItem(i));
+    },
+    Time(timeR) {
+      dispatch(Time(timeR));
     }
   };
 };

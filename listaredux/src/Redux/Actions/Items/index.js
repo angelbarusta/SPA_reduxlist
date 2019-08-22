@@ -12,6 +12,12 @@ export const selectItem = (v) => {
     v
   };
 };
+export const Time = (timeR) => {
+  return {
+    type: types.TIMER,
+    timeR
+  };
+};
 export const identifi = (idkey) => {
   return {
     type: types.IDENTIFI,
