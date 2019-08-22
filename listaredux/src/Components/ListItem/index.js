@@ -74,13 +74,15 @@ class ListaItems extends Component {
         var autor = s.autor;
         //onClick={()=>this.handleSelectItem(idkey,nom,desc,fech,autor)}
         return (
-          <Item
-            onClick={() =>
-              this.handleSelectItem(idkey, nom, desc, fech, autor)
-            }>
+          <Item>
             <Item.Content className='Item_elem'>
-              <h4 className='Item_'>Elemento # {idkey}.</h4>
-              <p style={{ margin: "auto" }}> {nom}</p>
+              <div
+                onClick={() =>
+                  this.handleSelectItem(idkey, nom, desc, fech, autor)
+                }>
+                <h4 className='Item_'>Elemento # {idkey}.</h4>
+                <p style={{ margin: "auto" }}> {nom}</p>
+              </div>
               <Icon
                 name='trash'
                 size='small'

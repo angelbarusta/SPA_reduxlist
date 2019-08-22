@@ -68,7 +68,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         cantidadElem: state.cantidadElem - 1,
-        idArr: state.numElem - 2
+        idArr: state.numElem - 2,
+        haytask: false
       };
     case types.ADDELEM:
       return {
