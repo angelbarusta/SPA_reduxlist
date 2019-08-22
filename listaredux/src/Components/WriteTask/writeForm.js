@@ -20,7 +20,9 @@ import {
   autorTarea,
   addListElement,
   addIdElemento,
-  visibilidad
+  visibilidad,
+  resta,
+  restIdElemento
 } from "../../Redux/Actions/Items";
 
 class Write extends Component {
@@ -81,6 +83,18 @@ class Write extends Component {
     var v = true;
     this.props.visibilidad(v);
   };
+  handleDelete = () => {
+    let addList = this.props.elements; //[]
+    var i = this.props.idElemento;
+    var dex = i - 1;
+
+    addList.splice(dex, 1);
+    this.props.restIdElemento();
+    this.props.resta();
+    this.props.addListElement(addList);
+    var v = false;
+    this.props.selectItem(v);
+  };
   render() {
     var seleElemen = this.props.haytask;
     var idElem = this.props.idElemento;
@@ -105,7 +119,23 @@ class Write extends Component {
                   {idElem}
                 </Label>
               </h4>
-              <Icon circular name='file' style={{ fontSize: "4.5em" }} />
+              <Popup
+                content={
+                  <div>
+                    ¿Decea eliminar la tarea?
+                    <Button
+                      style={{ background: "red", color: "white" }}
+                      onClick={() => this.handleDelete()}>
+                      Eliminar
+                    </Button>
+                  </div>
+                }
+                flowing
+                hoverable
+                trigger={
+                  <Icon circular name='file' style={{ fontSize: "4.5em" }} />
+                }
+              />
               <Form>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <Form.Field>
@@ -248,6 +278,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     visibilidad(v) {
       dispatch(visibilidad(v));
+    },
+    resta() {
+      dispatch(resta());
+    },
+    restIdElemento() {
+      dispatch(restIdElemento());
     }
   };
 };
