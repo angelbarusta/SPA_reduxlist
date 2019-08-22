@@ -12,7 +12,9 @@ import {
   autorTarea,
   addIdElemento,
   addListElement,
-  conteo
+  conteo,
+  restIdElemento,
+  resta
 } from "../../Redux/Actions/Items";
 
 //
@@ -41,13 +43,15 @@ class ListaItems extends Component {
   };
   handleDeled = () => {
     let addList = this.props.elements; //[]
-    var i = this.props.idArr;
+    var i = this.props.idElemento;
+    var dex = i - 1;
 
-    addList.splice(i, 1);
-
-    // this.props.resIdElemento();
-    // this.props.resta();
+    addList.splice(dex, 1);
+    this.props.restIdElemento();
+    this.props.resta();
     this.props.addListElement(addList);
+    var v = false;
+    this.props.selectItem(v);
   };
 
   render() {
@@ -151,11 +155,17 @@ const mapDispatchToProps = (dispatch) => {
     addIdElemento() {
       dispatch(addIdElemento());
     },
+    restIdElemento() {
+      dispatch(restIdElemento());
+    },
     addListElement(addList) {
       dispatch(addListElement(addList));
     },
     conteo() {
       dispatch(conteo());
+    },
+    resta() {
+      dispatch(resta());
     }
   };
 };

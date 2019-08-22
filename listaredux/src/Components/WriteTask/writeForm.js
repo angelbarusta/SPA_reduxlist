@@ -89,10 +89,11 @@ class Write extends Component {
     var FechTask = this.props.fechTask;
     var AutorTask = this.props.autorTask;
     var canItem = this.props.cantidadElem;
+    var { elements, numElem } = this.props;
 
     return (
       <Grid stackable columns={1}>
-        {seleElemen ? (
+        {seleElemen === true && numElem !== 0 ? (
           <Grid.Column>
             <Segment style={{ height: "-webkit-fill-available" }}>
               <h4>
@@ -218,7 +219,8 @@ const mapStateToProps = (state) => {
     fechTask: state.Items.fechTask,
     autorTask: state.Items.autorTask,
     cantidadElem: state.Items.cantidadElem,
-    elements: state.Items.elements
+    elements: state.Items.elements,
+    numElem: state.Items.numElem
   };
 };
 const mapDispatchToProps = (dispatch) => {

@@ -10,6 +10,7 @@ const initialState = {
   cantidadElem: 0,
   numElem: 0,
   idArr: 0,
+  idArrElem: 0,
   nombreTask: "Titulo de la tarea...",
   descripTask: "Descripcion de la tarea...",
   fechTask: moment(new Date()).format("DD/MM/YYYY"),
@@ -29,7 +30,8 @@ const reducer = (state = initialState, action) => {
     case types.SELECCIONANDOTEM:
       return {
         ...state,
-        haytask: action.v
+        haytask: action.v,
+        idArrElem: state.idElemento - 1
       };
     case types.IDENTIFI:
       return {
@@ -62,6 +64,12 @@ const reducer = (state = initialState, action) => {
         cantidadElem: state.cantidadElem + 1,
         idArr: state.cantidadElem
       };
+    case types.RSID:
+      return {
+        ...state,
+        cantidadElem: state.cantidadElem - 1,
+        idArr: state.cantidadElem
+      };
     case types.ADDELEM:
       return {
         ...state,
@@ -71,6 +79,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         numElem: state.numElem + 1
+      };
+    case types.RST:
+      return {
+        ...state,
+        numElem: state.numElem - 1,
+        idArr: state.cantidadElem - 1,
+        idElemento: state.idElemento - 1
       };
     default:
       return state;

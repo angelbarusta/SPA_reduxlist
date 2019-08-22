@@ -47,6 +47,11 @@ export const addIdElemento = () => {
     type: types.ADDID
   };
 };
+export const restIdElemento = () => {
+  return {
+    type: types.RSID
+  };
+};
 export const addListElement = (addList) => {
   return {
     type: types.ADDELEM,
@@ -56,5 +61,10 @@ export const addListElement = (addList) => {
 export const conteo = () => {
   return {
     type: types.CONTEO
+  };
+};
+export const resta = () => {
+  return {
+    type: types.RST
   };
 };
