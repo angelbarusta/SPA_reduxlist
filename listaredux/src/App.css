@@ -84,7 +84,6 @@
   border: 0pxy;
   white-space: inherit;
   overflow: scroll;
-  /* background-color: white !important; */
 }
 @media only screen and (max-width: 600px) {
 
