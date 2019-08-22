@@ -41,12 +41,12 @@ class ListaItems extends Component {
     this.props.conteo();
     this.props.addListElement(addList);
   };
-  handleDeled = () => {
+  handleDeled = (key) => {
     let addList = this.props.elements; //[]
-    var i = this.props.idElemento;
-    var dex = i - 1;
+    // var i = this.props.idElemento;
+    // var dex = i - 1;
 
-    addList.splice(dex, 1);
+    addList.splice(key, 1);
     this.props.restIdElemento();
     this.props.resta();
     this.props.addListElement(addList);
@@ -90,7 +90,7 @@ class ListaItems extends Component {
                     name='trash'
                     size='small'
                     className='Dele_'
-                    onClick={() => this.handleDeled()}
+                    onClick={() => this.handleDeled(key)}
                   />
                 </Item.Content>
               </Item>
@@ -144,7 +144,8 @@ const mapStateToProps = (state) => {
     descripTask: state.Items.descripTask,
     fechTask: state.Items.fechTask,
     autorTask: state.Items.autorTask,
-    idArr: state.Items.idArr
+    idArr: state.Items.idArr,
+    idArrElem: state.Items.idArrElem
   };
 };
 const mapDispatchToProps = (dispatch) => {
