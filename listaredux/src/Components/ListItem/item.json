@@ -1,11 +1,10 @@
 {
-    "ItemTask":[
+    "ItemTask":
         {
-            "id":1,
-            "nombre":"Sensor de humedad de suelo",
-            "desc":"Este sensor mide la humedad del suelo(tierra)",
-            "tipo":"Sencillo",
-            "fecha":"$30"
+            "nombre":"Nuevo elemento",
+            "desc":"Describe aqui tu tarea...",
+            "autor":"Quien realiza la tarea...",
+            "fecha":""
         }
-    ]
-   }
+    
+   }  
