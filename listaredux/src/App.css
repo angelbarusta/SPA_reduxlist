@@ -24,9 +24,89 @@
 }
 
 .barListItem{
-  width: 25%;
-  background: steelblue;
-  height: -webkit-fill-available;
+  display:flex;
+  justify-content:space-between;
+}
+.eventNoti{
+  width:24%;
+  margin:0px !important;
+  /* height:180px;  */
+  height: fit-content;
+}
+.WriteBloc{
+  margin:0px !important;
+  width:75% !important ;
+  height:'-webkit-fill-available';
+}
+.segmewri{
+  width:100% !important;
+}
+.siddbarEle{
+  width:25% !important;
+}
+.Item_{
+  margin: auto
+}
+ .Item_:hover{
+  
+}
+.Item_elem{
+  background:#a333c8;
+  padding: 10px;
+  border-radius: 2em;
+  cursor: pointer;
+}
+.Item_elem:hover{
+  background: #b58ac3;
+  padding: 10px;
+  border-radius: 2em;
+  cursor: pointer;
+  color:white;
+}
+.Dele_{
+  color:#a333c8;
+}
+.Dele_:hover{
+  color:white;
+}
+.flex_{
+  display: flex;
+  justify-content: space-between;
+}
+.Header_{
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  cursor: pointer;
+}
+.ps_content_frame{
+  height: 430px;
+  border: 0pxy;
+  white-space: inherit;
+  overflow: scroll;
+}
+@media only screen and (max-width: 600px) {
+
+  .barListItem{
+    display:block;
+  }
+  .eventNoti{
+    width:24%;
+    margin:auto !important;
+    padding-bottom: 30px;
+    /* height:180px;  */
+    height: fit-content;
+  }
+  .WriteBloc{
+    margin:auto !important;
+    width:100% !important;
+    height:-webkit-fill-available;
+    padding-top: 20px;
+  }
+  .siddbarEle{
+    width:70% !important;
+    height:'-webkit-fill-available' !important;
+  }
 }
 
 @keyframes App-logo-spin {

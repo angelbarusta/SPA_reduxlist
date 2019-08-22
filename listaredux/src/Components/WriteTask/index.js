@@ -1,61 +1,105 @@
-import React,{Component} from 'react';
-import {connect} from 'react-redux';
-import { Button, Header, Icon, Image, Menu, Segment, Sidebar, Card, Feed, Label } from 'semantic-ui-react'
-import Write from './writeForm';
-import { visibilidad, selectItem } from '../../Redux/Actions/Items';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import {
+  Button,
+  Header,
+  Icon,
+  Image,
+  Menu,
+  Segment,
+  Sidebar,
+  Card,
+  Feed,
+  Label
+} from "semantic-ui-react";
+import Write from "./writeForm";
+import { visibilidad, selectItem } from "../../Redux/Actions/Items";
+import "../../App.css";
 
-class WriteTask extends Component{
-    
-      
-    handleShowClick = () =>{
-        var v=true;
-        this.props.visibilidad(v);              
-      }
-    render(){
-        return(
-            <div style={{display:'flex',justifyContent:'space-between'}} >
-               <Card onClick={this.handleShowClick} style={{width:'24%',margin:0,height:180}} >
-                  <Card.Content>
-                    <Card.Header>Recent Activity</Card.Header>
-                  </Card.Content>
-                  <Card.Content>
-                    <Feed>
-                      <Feed.Event>
-                        <Label circular color={'red'} style={{width:10,height:10}}>1</Label>
-                        <Feed.Content>
-                          <Feed.Date content='1 day ago' />
-                          <Feed.Summary>
-                            You added <a>Jenny Hess</a> to your <a>coworker</a> group.
-                          </Feed.Summary>
-                        </Feed.Content>
-                      </Feed.Event>
-                    </Feed>
-                  </Card.Content>
-                </Card>
+class WriteTask extends Component {
+  handleShowClick = () => {
+    var v = true;
+    this.props.visibilidad(v);
+  };
+  render() {
+    var cant = this.props.numElem;
+    var { autorTask, nombreTask, fechTask } = this.props;
 
-               <Card style={{margin:0,width:'75%',height:'-webkit-fill-available'}} >
-                 <Write/>
-               </Card>
+    return (
+      <div className='barListItem'>
+        <Card onClick={this.handleShowClick} className='eventNoti'>
+          <Card.Content>
+            <Card.Header>Resumen</Card.Header>
+          </Card.Content>
+          <Card.Content>
+            <Feed>
+              <Feed.Event>
+                <Label circular color={"red"} style={{ width: 10, height: 10 }}>
+                  {cant}
+                </Label>
+                <Feed.Content>
+                  <Feed.Date
+                    content='Numero de tareas'
+                    style={{ paddingBottom: 10 }}
+                  />
+                  <div className='flex_'>
+                    <Feed.Date content={fechTask} />
+                    <Icon name='time' />
+                  </div>
+                  {cant > 0 ? (
+                    <Feed.Summary>
+                      {autorTask} <a> a creado la tarea </a>
+                      {nombreTask}
+                      {fechTask == undefined || fechTask == "" ? (
+                        <a> Fecha sin definir </a>
+                      ) : (
+                        <div>
+                          <a> de la fecha </a>
+                          <div>{fechTask}</div>
+                        </div>
+                      )}
+                    </Feed.Summary>
+                  ) : (
+                    <Feed.Summary>Sin Tareas</Feed.Summary>
+                  )}
+                </Feed.Content>
+              </Feed.Event>
+            </Feed>
+          </Card.Content>
+        </Card>
 
-            </div>
-        )
-    };
+        <div className='WriteBloc'>
+          <Write />
+        </div>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    visibility: state.Items.visibility,
+    elements: state.Items.elements,
+    cantidadElem: state.Items.cantidadElem,
+    numElem: state.Items.numElem,
+    nombreTask: state.Items.nombreTask,
+    descripTask: state.Items.descripTask,
+    fechTask: state.Items.fechTask,
+    autorTask: state.Items.autorTask
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    visibilidad(v) {
+      dispatch(visibilidad(v));
+    },
+    selectItem(i) {
+      dispatch(selectItem(i));
+    }
+  };
 };
 
-const mapStateToProps=(state)=>{
-    return{
-        visibility:state.Items.visibility,
-    }
-}
-const mapDispatchToProps=(dispatch)=>{
-    return{
-        visibilidad(v){
-            dispatch(visibilidad(v))
-          },
-          selectItem(i){
-            dispatch(selectItem(i))
-        },
-    }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(WriteTask);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WriteTask);
