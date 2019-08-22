@@ -57,6 +57,7 @@ class ListaItems extends Component {
   render() {
     var addList = this.props.elements;
     var idEl = this.props.cantidadElem;
+    var { numElem } = this.props;
 
     if (idEl > 0) {
       var i = this.props.idArr;
@@ -65,7 +66,7 @@ class ListaItems extends Component {
     }
     let list = [addList[i]];
 
-    if (idEl > 0) {
+    if (idEl > 0 && i >= 0) {
       var ItemGrup = addList.map((s, key) => {
         var idkey = key + 1;
         var nom = s.nombre;
