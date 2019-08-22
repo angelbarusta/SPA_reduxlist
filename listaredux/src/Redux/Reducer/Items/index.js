@@ -79,13 +79,15 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         numElem: state.numElem + 1
+        // idArr: state.cantidadElem + 1,
+        // idElemento: state.idElemento + 1
       };
     case types.RST:
       return {
         ...state,
-        numElem: state.numElem - 1,
-        idArr: state.cantidadElem - 1,
-        idElemento: state.idElemento - 1
+        numElem: state.numElem - 1
+        // idArr: state.cantidadElem - 1,
+        // idElemento: state.idElemento - 1
       };
     default:
       return state;
