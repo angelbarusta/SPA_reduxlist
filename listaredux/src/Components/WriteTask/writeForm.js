@@ -143,7 +143,7 @@ class Write extends Component {
                     placeholder={DescTask}
                     value={DescTask}
                     onChange={(e) => this.handleDesc(e)}
-                    style={{ minHeight: 240 }}
+                    style={{ minHeight: 165 }}
                   />
                 </Form.Field>
               </Form>

@@ -61,6 +61,13 @@
   padding: 10px;
   border-radius: 2em;
   cursor: pointer;
+  color:white;
+}
+.Dele_{
+  color:#a333c8;
+}
+.Dele_:hover{
+  color:white;
 }
 .flex_{
   display: flex;

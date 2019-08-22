@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Button, Popup, Item, Image, Segment } from "semantic-ui-react";
+import { Button, Popup, Item, Image, Segment, Icon } from "semantic-ui-react";
 import "../../App.css";
 import { ItemTask } from "./item.json";
 import {
@@ -39,6 +39,16 @@ class ListaItems extends Component {
     this.props.conteo();
     this.props.addListElement(addList);
   };
+  handleDeled = () => {
+    let addList = this.props.elements; //[]
+    var i = this.props.idArr;
+
+    addList.splice(i, 1);
+
+    // this.props.resIdElemento();
+    // this.props.resta();
+    this.props.addListElement(addList);
+  };
 
   render() {
     var addList = this.props.elements;
@@ -66,7 +76,13 @@ class ListaItems extends Component {
             }>
             <Item.Content className='Item_elem'>
               <h4 className='Item_'>Elemento # {idkey}.</h4>
-              <p> {nom}</p>
+              <p style={{ margin: "auto" }}> {nom}</p>
+              <Icon
+                name='trash'
+                size='small'
+                className='Dele_'
+                onClick={() => this.handleDeled()}
+              />
             </Item.Content>
           </Item>
         );
