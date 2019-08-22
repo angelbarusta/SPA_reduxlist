@@ -159,7 +159,7 @@ class Write extends Component {
                     />
 
                     <input
-                      placeholder={AutorTask}
+                      placeholder='Nombre del autor...'
                       value={AutorTask}
                       onChange={(e) => this.handleAutor(e)}
                     />
@@ -171,7 +171,7 @@ class Write extends Component {
                     />
                     <input
                       type='date'
-                      placeholder={FechTask}
+                      placeholder='YYYY/MM/DD'
                       value={FechTask}
                       onChange={(e) => this.handleFecha(e)}
                     />
@@ -183,14 +183,14 @@ class Write extends Component {
                     trigger={<label>Titulo de tarea</label>}
                   />
                   <input
-                    placeholder={NameTask}
+                    placeholder='Titula de la tarea...'
                     value={NameTask}
                     onChange={(e) => this.handleTitulo(e)}
                   />
                 </Form.Field>
                 <Form.Field>
                   <TextArea
-                    placeholder={DescTask}
+                    placeholder='Descripcion de la tarea...'
                     value={DescTask}
                     onChange={(e) => this.handleDesc(e)}
                     style={{ minHeight: 165 }}
