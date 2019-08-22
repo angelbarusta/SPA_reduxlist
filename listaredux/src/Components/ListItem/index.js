@@ -74,42 +74,55 @@ class ListaItems extends Component {
         var autor = s.autor;
         //onClick={()=>this.handleSelectItem(idkey,nom,desc,fech,autor)}
         return (
-          <Item>
-            <Item.Content className='Item_elem'>
-              <div
-                onClick={() =>
-                  this.handleSelectItem(idkey, nom, desc, fech, autor)
-                }>
-                <h4 className='Item_'>Elemento # {idkey}.</h4>
-                <p style={{ margin: "auto" }}> {nom}</p>
-              </div>
-              <Icon
-                name='trash'
-                size='small'
-                className='Dele_'
-                onClick={() => this.handleDeled()}
-              />
-            </Item.Content>
-          </Item>
+          <Popup
+            content='Abrir este elemento'
+            trigger={
+              <Item>
+                <Item.Content className='Item_elem'>
+                  <div
+                    onClick={() =>
+                      this.handleSelectItem(idkey, nom, desc, fech, autor)
+                    }>
+                    <h4 className='Item_'>Elemento # {idkey}.</h4>
+                    <p style={{ margin: "auto" }}> {nom}</p>
+                  </div>
+                  <Icon
+                    name='trash'
+                    size='small'
+                    className='Dele_'
+                    onClick={() => this.handleDeled()}
+                  />
+                </Item.Content>
+              </Item>
+            }
+          />
         );
       });
     } else {
       var ItemGrup = (
-        <Item onClick={() => this.handleAdd()}>
-          <Item.Content className='Item_elem'>
-            <h4 style={{ margin: "auto" }}>Sin elementos</h4>
-            <p> Haz click en el boton Agregar elemento</p>
-          </Item.Content>
-        </Item>
+        <Popup
+          content='Edita un elemento'
+          trigger={
+            <Item onClick={() => this.handleAdd()}>
+              <Item.Content className='Item_elem'>
+                <h4 style={{ margin: "auto" }}>Sin elementos</h4>
+                <p> Haz click en el boton Agregar elemento</p>
+              </Item.Content>
+            </Item>
+          }
+        />
       );
     }
 
     return (
       <div>
-        <Item.Group style={{ padding: 10 }}>
-          <div>{ItemGrup}</div>
-        </Item.Group>
-        <Segment style={{ top: 480, background: "#1b1c1d" }}>
+        <Segment style={{ background: "#1b1c1d" }} className='ps_content_frame'>
+          <Item.Group style={{ padding: 10 }}>
+            <div>{ItemGrup}</div>
+          </Item.Group>
+        </Segment>
+        <br />
+        <Segment style={{ background: "#1b1c1d" }}>
           <Button
             style={{ borderRadius: "2em" }}
             onClick={() => this.handleAdd()}>

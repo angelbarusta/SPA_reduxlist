@@ -29,7 +29,7 @@ class WriteTask extends Component {
       <div className='barListItem'>
         <Card onClick={this.handleShowClick} className='eventNoti'>
           <Card.Content>
-            <Card.Header>Actividad reciente</Card.Header>
+            <Card.Header>Resumen</Card.Header>
           </Card.Content>
           <Card.Content>
             <Feed>

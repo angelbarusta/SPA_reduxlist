@@ -77,6 +77,14 @@
   display: flex;
   justify-content: space-between;
   width: 95%;
+  cursor: pointer;
+}
+.ps_content_frame{
+  height: 430px;
+  border: 0pxy;
+  white-space: inherit;
+  overflow: scroll;
+  /* background-color: white !important; */
 }
 @media only screen and (max-width: 600px) {
 

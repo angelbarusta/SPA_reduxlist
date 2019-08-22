@@ -95,6 +95,7 @@ class Write extends Component {
     var v = false;
     this.props.selectItem(v);
   };
+
   render() {
     var seleElemen = this.props.haytask;
     var idElem = this.props.idElemento;
@@ -110,15 +111,23 @@ class Write extends Component {
         {seleElemen === true && numElem !== 0 ? (
           <Grid.Column>
             <Segment style={{ height: "-webkit-fill-available" }}>
-              <h4>
-                Estas editando la tarea #
-                <Label
-                  circular
-                  color={"blue"}
-                  style={{ width: 10, height: 10, padding: 10 }}>
-                  {idElem}
-                </Label>
-              </h4>
+              <Popup
+                content='Abre la lista de elementos'
+                trigger={
+                  <h4
+                    onClick={() => this.handleShowClick()}
+                    style={{ cursor: "pointer" }}>
+                    Estas editando la tarea #
+                    <Label
+                      circular
+                      color={"blue"}
+                      style={{ width: 10, height: 10, padding: 10 }}>
+                      {idElem}
+                    </Label>
+                  </h4>
+                }
+              />
+
               <Popup
                 content={
                   <div>
@@ -133,7 +142,12 @@ class Write extends Component {
                 flowing
                 hoverable
                 trigger={
-                  <Icon circular name='file' style={{ fontSize: "4.5em" }} />
+                  <Icon
+                    circular
+                    name='file'
+                    style={{ fontSize: "4.5em", cursor: "pointer" }}
+                    onClick={() => this.handleShowClick()}
+                  />
                 }
               />
               <Form>
@@ -212,10 +226,15 @@ class Write extends Component {
                   <h4>No has seleccionado un elemento</h4>
                   <div onClick={() => this.handleShowClick()}>
                     <p>Selecciona un elemento</p>
-                    <Icon
-                      name='edit'
-                      circular
-                      style={{ fontSize: "1.5em", cursor: "pointer" }}
+                    <Popup
+                      content='Abre el menu de elementos creados'
+                      trigger={
+                        <Icon
+                          name='edit'
+                          circular
+                          style={{ fontSize: "1.5em", cursor: "pointer" }}
+                        />
+                      }
                     />
                   </div>
                 </div> //handleShowClick
@@ -224,10 +243,15 @@ class Write extends Component {
                   <h4>No has creado ningun elemento, crea uno para iniciar</h4>
                   <div onClick={() => this.handleShowClick()}>
                     <p>Añade un elemento</p>
-                    <Icon
-                      name='add'
-                      circular
-                      style={{ fontSize: "1.5em", cursor: "pointer" }}
+                    <Popup
+                      content='Crear elemento nuevo'
+                      trigger={
+                        <Icon
+                          name='add'
+                          circular
+                          style={{ fontSize: "1.5em", cursor: "pointer" }}
+                        />
+                      }
                     />
                   </div>
                 </div> //handleShowClick
