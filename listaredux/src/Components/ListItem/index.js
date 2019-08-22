@@ -64,13 +64,8 @@ class ListaItems extends Component {
             onClick={() =>
               this.handleSelectItem(idkey, nom, desc, fech, autor)
             }>
-            <Item.Content
-              style={{
-                background: "chocolate",
-                padding: 10,
-                borderRadius: "2em"
-              }}>
-              <h4 style={{ margin: "auto" }}>Elemento # {idkey}</h4>
+            <Item.Content className='Item_elem'>
+              <h4 className='Item_'>Elemento # {idkey}.</h4>
               <p> {nom}</p>
             </Item.Content>
           </Item>
@@ -79,12 +74,7 @@ class ListaItems extends Component {
     } else {
       var ItemGrup = (
         <Item onClick={() => this.handleAdd()}>
-          <Item.Content
-            style={{
-              background: "chocolate",
-              padding: 10,
-              borderRadius: "2em"
-            }}>
+          <Item.Content className='Item_elem'>
             <h4 style={{ margin: "auto" }}>Sin elementos</h4>
             <p> Haz click en el boton Agregar elemento</p>
           </Item.Content>

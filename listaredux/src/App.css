@@ -43,7 +43,24 @@
 .siddbarEle{
   width:25% !important;
 }
-
+.Item_{
+  margin: auto
+}
+ .Item_:hover{
+  
+}
+.Item_elem{
+  background:#a333c8;
+  padding: 10px;
+  border-radius: 2em;
+  cursor: pointer;
+}
+.Item_elem:hover{
+  background: #b58ac3;
+  padding: 10px;
+  border-radius: 2em;
+  cursor: pointer;
+}
 @media only screen and (max-width: 600px) {
   .barListItem{
     display:block;

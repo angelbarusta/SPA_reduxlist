@@ -47,13 +47,13 @@ class WriteTask extends Component {
                     <Feed.Summary>
                       {autorTask} <a> a creado la tarea </a>
                       {nombreTask}
-                      {fechTask == undefined ? (
+                      {fechTask == undefined || fechTask == "" ? (
+                        <a> Fecha sin definir </a>
+                      ) : (
                         <div>
                           <a> de la fecha </a>
                           <div>{fechTask}</div>
                         </div>
-                      ) : (
-                        <a> Fecha sin definir </a>
                       )}
                     </Feed.Summary>
                   ) : (

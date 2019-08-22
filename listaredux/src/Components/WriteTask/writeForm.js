@@ -170,7 +170,7 @@ class Write extends Component {
         ) : (
           <Grid.Column>
             <Segment style={{ height: "-webkit-fill-available" }}>
-              <Icon circular name='user' style={{ fontSize: "4.5em" }} />
+              <Icon circular name='file' style={{ fontSize: "4.5em" }} />
               {canItem > 0 ? (
                 <h4>No has seleccionado un elemento</h4>
               ) : (
