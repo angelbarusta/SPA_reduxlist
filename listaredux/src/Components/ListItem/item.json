@@ -1,9 +1,9 @@
 {
     "ItemTask":
         {
-            "nombre":"Nuevo elemento",
-            "desc":"Describe aqui tu tarea...",
-            "autor":"Quien realiza la tarea...",
+            "nombre":"",
+            "desc":"",
+            "autor":"",
             "fecha":""
         }
     
