@@ -10,7 +10,8 @@ import {
   TextArea,
   Icon,
   Popup,
-  Label
+  Label,
+  Message
 } from "semantic-ui-react";
 import {
   selectItem,
@@ -104,13 +105,28 @@ class Write extends Component {
     var FechTask = this.props.fechTask;
     var AutorTask = this.props.autorTask;
     var canItem = this.props.cantidadElem;
-    var { elements, numElem } = this.props;
+    var { elements, numElem, notiOK, notiDEL } = this.props;
 
     return (
       <Grid stackable columns={1}>
         {seleElemen === true && numElem !== 0 ? (
           <Grid.Column>
             <Segment style={{ height: "-webkit-fill-available" }}>
+              {notiOK == true && (
+                <Message
+                  success
+                  header={`Has guardado la tarea ${NameTask} con el # ${idElem}!!`}
+                  content={`Autor ${AutorTask} Con la fecha: ${FechTask}`}
+                />
+              )}
+              {notiDEL == true && notiOK == false && (
+                <Message
+                  error
+                  header={`Has eliminado la tarea ${NameTask} con el # ${idElem}!!`}
+                  content={`Autor ${AutorTask} Con la fecha: ${FechTask}`}
+                />
+              )}
+
               <Popup
                 content='Abre la lista de elementos'
                 trigger={
@@ -220,6 +236,13 @@ class Write extends Component {
         ) : (
           <Grid.Column>
             <Segment style={{ height: "-webkit-fill-available" }}>
+              {notiDEL == true && (
+                <Message
+                  error
+                  header={`Has eliminado la tarea ${NameTask} con el # ${idElem}!!`}
+                  content={`Autor ${AutorTask} Con la fecha: ${FechTask}`}
+                />
+              )}
               <Icon circular name='file' style={{ fontSize: "4.5em" }} />
               {canItem > 0 ? (
                 <div>
@@ -274,7 +297,9 @@ const mapStateToProps = (state) => {
     autorTask: state.Items.autorTask,
     cantidadElem: state.Items.cantidadElem,
     elements: state.Items.elements,
-    numElem: state.Items.numElem
+    numElem: state.Items.numElem,
+    notiOK: state.Items.notiOK,
+    notiDEL: state.Items.notiDEL
   };
 };
 const mapDispatchToProps = (dispatch) => {

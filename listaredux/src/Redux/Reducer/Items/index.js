@@ -16,6 +16,8 @@ const initialState = {
   fechTask: moment(new Date()).format("DD/MM/YYYY"),
   tim: moment(new Date()).format("hh:mm:ss"),
   autorTask: "Nombre del autor...",
+  notiOK: false,
+  notiDEL: false,
 
   elements: []
 };
@@ -26,13 +28,16 @@ const reducer = (state = initialState, action) => {
     case types.VISIBILI:
       return {
         ...state,
-        visibility: action.v
+        visibility: action.v,
+        notiOK: false,
+        notiDEL: false
       };
     case types.SELECCIONANDOTEM:
       return {
         ...state,
         haytask: action.v,
-        idArrElem: state.idElemento - 1
+        idArrElem: state.idElemento - 1,
+        notiOK: false
       };
     case types.IDENTIFI:
       return {
@@ -63,31 +68,37 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         cantidadElem: state.cantidadElem + 1,
-        idArr: state.cantidadElem
+        idArr: state.cantidadElem,
+        notiOK: true
       };
     case types.RSID:
       return {
         ...state,
         cantidadElem: state.cantidadElem - 1,
         idArr: state.numElem - 2,
-        haytask: false
+        haytask: false,
+        notiDEL: true,
+        notiOK: false
       };
     case types.ADDELEM:
       return {
         ...state,
-        elements: action.addList
+        elements: action.addList,
+        notiOK: true
       };
     case types.CONTEO:
       return {
         ...state,
         numElem: state.numElem + 1
+
         // idArr: state.cantidadElem + 1,
         // idElemento: state.idElemento + 1
       };
     case types.RST:
       return {
         ...state,
-        numElem: state.numElem - 1
+        numElem: state.numElem - 1,
+        notiDEL: true
         // idArr: state.cantidadElem - 1,
         // idElemento: state.idElemento - 1
       };

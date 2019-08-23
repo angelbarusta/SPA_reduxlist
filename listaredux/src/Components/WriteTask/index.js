@@ -10,7 +10,8 @@ import {
   Sidebar,
   Card,
   Feed,
-  Label
+  Label,
+  Message
 } from "semantic-ui-react";
 import Write from "./writeForm";
 import { visibilidad, selectItem, Time } from "../../Redux/Actions/Items";
@@ -36,14 +37,22 @@ class WriteTask extends Component {
   }
   render() {
     var cant = this.props.numElem;
-    var { autorTask, nombreTask, fechTask } = this.props;
+    var {
+      autorTask,
+      nombreTask,
+      fechTask,
+      descripTask,
+      tim,
+      notiDEL,
+      idElemento
+    } = this.props;
     if (cant > 0) {
       var colr = "red";
     } else {
       var colr = "green";
     }
     var DateR = moment(Date()).format("DD/MM/YYYY");
-    var { tim } = this.props;
+
     return (
       <div className='barListItem'>
         <Card onClick={this.handleShowClick} className='eventNoti'>
@@ -61,6 +70,13 @@ class WriteTask extends Component {
                   {cant}
                 </Label>
                 <Feed.Content>
+                  {notiDEL == true && (
+                    <Message
+                      error
+                      header={`Has eliminado la tarea ${nombreTask} con el # ${idElemento}!!`}
+                      content={`Autor ${autorTask} Con la fecha: ${fechTask}`}
+                    />
+                  )}
                   <Feed.Date
                     content='Numero de tareas'
                     style={{ paddingBottom: 10 }}
@@ -109,7 +125,9 @@ const mapStateToProps = (state) => {
     descripTask: state.Items.descripTask,
     fechTask: state.Items.fechTask,
     autorTask: state.Items.autorTask,
-    tim: state.Items.tim
+    tim: state.Items.tim,
+    notiDEL: state.Items.notiDEL,
+    idElemento: state.Items.idElemento
   };
 };
 const mapDispatchToProps = (dispatch) => {
