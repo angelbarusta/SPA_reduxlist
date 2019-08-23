@@ -44,7 +44,8 @@ class WriteTask extends Component {
       descripTask,
       tim,
       notiDEL,
-      idElemento
+      idElemento,
+      notiOK
     } = this.props;
     if (cant > 0) {
       var colr = "red";
@@ -74,6 +75,13 @@ class WriteTask extends Component {
                     <Message
                       error
                       header={`Has eliminado la tarea ${nombreTask} con el # ${idElemento}!!`}
+                      content={`Autor ${autorTask} Con la fecha: ${fechTask}`}
+                    />
+                  )}
+                  {notiOK == true && (
+                    <Message
+                      success
+                      header={`Has guardado la tarea ${nombreTask} con el # ${idElemento}!!`}
                       content={`Autor ${autorTask} Con la fecha: ${fechTask}`}
                     />
                   )}
@@ -127,6 +135,7 @@ const mapStateToProps = (state) => {
     autorTask: state.Items.autorTask,
     tim: state.Items.tim,
     notiDEL: state.Items.notiDEL,
+    notiOK: state.Items.notiOK,
     idElemento: state.Items.idElemento
   };
 };
